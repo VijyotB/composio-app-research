@@ -1,0 +1,4333 @@
+{
+  "sample": true,
+  "patterns": {
+    "n": 100,
+    "auth": [
+      [
+        "api_key",
+        33
+      ],
+      [
+        "oauth2",
+        29
+      ],
+      [
+        "bearer_token",
+        22
+      ],
+      [
+        "hmac_signed",
+        16
+      ]
+    ],
+    "access_tier": [
+      [
+        "self_serve_free",
+        36
+      ],
+      [
+        "self_serve_paid",
+        25
+      ],
+      [
+        "partner_gated",
+        20
+      ],
+      [
+        "admin_approval",
+        8
+      ],
+      [
+        "app_review",
+        7
+      ],
+      [
+        "no_public_api",
+        4
+      ]
+    ],
+    "verdict": [
+      [
+        "build_with_care",
+        40
+      ],
+      [
+        "build_now",
+        36
+      ],
+      [
+        "needs_outreach",
+        20
+      ],
+      [
+        "not_buildable",
+        4
+      ]
+    ],
+    "blocker": [
+      [
+        "none",
+        36
+      ],
+      [
+        "paid_plan_required",
+        25
+      ],
+      [
+        "partnership_required",
+        20
+      ],
+      [
+        "admin_approval_required",
+        8
+      ],
+      [
+        "app_review_required",
+        7
+      ],
+      [
+        "no_public_api",
+        4
+      ]
+    ],
+    "mcp": [
+      [
+        "none",
+        49
+      ],
+      [
+        "community",
+        32
+      ],
+      [
+        "official",
+        19
+      ]
+    ],
+    "api_types": [
+      [
+        "rest",
+        80
+      ],
+      [
+        "graphql",
+        20
+      ]
+    ],
+    "api_breadth": [
+      [
+        "moderate",
+        35
+      ],
+      [
+        "broad",
+        24
+      ],
+      [
+        "very_broad",
+        23
+      ],
+      [
+        "narrow",
+        18
+      ]
+    ],
+    "categories": [
+      {
+        "category": "CRM and Sales",
+        "n": 10,
+        "self_serve": 7,
+        "gated": 3,
+        "build_now": 3,
+        "needs_outreach": 3,
+        "mcp": 6,
+        "self_serve_pct": 70,
+        "dominant_auth": "api_key"
+      },
+      {
+        "category": "Support and Helpdesk",
+        "n": 10,
+        "self_serve": 9,
+        "gated": 1,
+        "build_now": 6,
+        "needs_outreach": 0,
+        "mcp": 4,
+        "self_serve_pct": 90,
+        "dominant_auth": "oauth2"
+      },
+      {
+        "category": "Communications and Messaging",
+        "n": 10,
+        "self_serve": 9,
+        "gated": 1,
+        "build_now": 7,
+        "needs_outreach": 0,
+        "mcp": 4,
+        "self_serve_pct": 90,
+        "dominant_auth": "api_key"
+      },
+      {
+        "category": "Marketing, Ads, Email and Social",
+        "n": 10,
+        "self_serve": 5,
+        "gated": 5,
+        "build_now": 5,
+        "needs_outreach": 4,
+        "mcp": 5,
+        "self_serve_pct": 50,
+        "dominant_auth": "oauth2"
+      },
+      {
+        "category": "Ecommerce",
+        "n": 10,
+        "self_serve": 1,
+        "gated": 9,
+        "build_now": 1,
+        "needs_outreach": 5,
+        "mcp": 4,
+        "self_serve_pct": 10,
+        "dominant_auth": "oauth2"
+      },
+      {
+        "category": "Data, SEO and Scraping",
+        "n": 10,
+        "self_serve": 10,
+        "gated": 0,
+        "build_now": 3,
+        "needs_outreach": 0,
+        "mcp": 8,
+        "self_serve_pct": 100,
+        "dominant_auth": "bearer_token"
+      },
+      {
+        "category": "Developer, Infra and Data platforms",
+        "n": 10,
+        "self_serve": 10,
+        "gated": 0,
+        "build_now": 4,
+        "needs_outreach": 0,
+        "mcp": 5,
+        "self_serve_pct": 100,
+        "dominant_auth": "bearer_token"
+      },
+      {
+        "category": "Productivity and Project Management",
+        "n": 10,
+        "self_serve": 3,
+        "gated": 7,
+        "build_now": 3,
+        "needs_outreach": 0,
+        "mcp": 5,
+        "self_serve_pct": 30,
+        "dominant_auth": "oauth2"
+      },
+      {
+        "category": "Finance and Fintech",
+        "n": 10,
+        "self_serve": 4,
+        "gated": 6,
+        "build_now": 4,
+        "needs_outreach": 5,
+        "mcp": 5,
+        "self_serve_pct": 40,
+        "dominant_auth": "hmac_signed"
+      },
+      {
+        "category": "AI, Research and Media-native",
+        "n": 10,
+        "self_serve": 3,
+        "gated": 7,
+        "build_now": 0,
+        "needs_outreach": 3,
+        "mcp": 5,
+        "self_serve_pct": 30,
+        "dominant_auth": "api_key"
+      }
+    ],
+    "auth_vs_gate": {
+      "bearer_token": {
+        "self_serve": 16,
+        "gated": 6
+      },
+      "api_key": {
+        "self_serve": 20,
+        "gated": 13
+      },
+      "hmac_signed": {
+        "self_serve": 9,
+        "gated": 7
+      },
+      "oauth2": {
+        "self_serve": 16,
+        "gated": 13
+      }
+    },
+    "pct": {
+      "self_serve": 61,
+      "build_now": 36,
+      "needs_outreach": 20,
+      "any_mcp": 51,
+      "official_mcp": 19
+    }
+  },
+  "accuracy": {
+    "available": true,
+    "n_sampled": 20,
+    "fields": {
+      "auth_methods": {
+        "n": 20,
+        "v1_pct": 70,
+        "v2_pct": 90
+      },
+      "access_tier": {
+        "n": 20,
+        "v1_pct": 55,
+        "v2_pct": 80
+      },
+      "api_types": {
+        "n": 20,
+        "v1_pct": 85,
+        "v2_pct": 95
+      },
+      "mcp_status": {
+        "n": 20,
+        "v1_pct": 45,
+        "v2_pct": 85
+      },
+      "verdict": {
+        "n": 20,
+        "v1_pct": 60,
+        "v2_pct": 85
+      }
+    },
+    "overall": {
+      "n": 100,
+      "v1_pct": 63,
+      "v2_pct": 87,
+      "delta": 24
+    },
+    "rows": [],
+    "regressions": []
+  },
+  "validation": {
+    "v1_clean_pct": 58,
+    "v2_clean_pct": 91,
+    "repairs_run": 61,
+    "top_v1_errors": [
+      [
+        "excerpt not found in the page",
+        34
+      ],
+      [
+        "access_tier asserted with no grounded evidence",
+        19
+      ]
+    ],
+    "still_failing": [
+      "fanbasis",
+      "iPayX"
+    ]
+  },
+  "apps": [
+    {
+      "app": "Consensus",
+      "slug": "consensus",
+      "category": "AI, Research and Media-native",
+      "hint": "consensus.app (OAuth requested)",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Devin",
+      "slug": "devin",
+      "category": "AI, Research and Media-native",
+      "hint": "docs.devin.ai (MCP)",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "no_public_api",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "not_buildable",
+      "blocker": "no_public_api",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Fathom",
+      "slug": "fathom",
+      "category": "AI, Research and Media-native",
+      "hint": "fathom.video",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Grain",
+      "slug": "grain",
+      "category": "AI, Research and Media-native",
+      "hint": "grain.com (meeting notes)",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Mermaid CLI",
+      "slug": "mermaid-cli",
+      "category": "AI, Research and Media-native",
+      "hint": "github.com/mermaid-js/mermaid-cli",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "no_public_api",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "not_buildable",
+      "blocker": "no_public_api",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": false,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "NotebookLM",
+      "slug": "notebooklm",
+      "category": "AI, Research and Media-native",
+      "hint": "cloud.google.com/gemini (Enterprise API)",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "no_public_api",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "not_buildable",
+      "blocker": "no_public_api",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Otter AI",
+      "slug": "otter-ai",
+      "category": "AI, Research and Media-native",
+      "hint": "help.otter.ai (MCP server)",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Reducto",
+      "slug": "reducto",
+      "category": "AI, Research and Media-native",
+      "hint": "reducto.ai (document parsing)",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "no_public_api",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "not_buildable",
+      "blocker": "no_public_api",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "YouTube Transcript",
+      "slug": "youtube-transcript",
+      "category": "AI, Research and Media-native",
+      "hint": "transcriptapi.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "higgsfield",
+      "slug": "higgsfield",
+      "category": "AI, Research and Media-native",
+      "hint": "higgsfield.ai/cli (content suite)",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Attio",
+      "slug": "attio",
+      "category": "CRM and Sales",
+      "hint": "attio.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "hmac_signed"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": false,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Close",
+      "slug": "close",
+      "category": "CRM and Sales",
+      "hint": "close.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Copper",
+      "slug": "copper",
+      "category": "CRM and Sales",
+      "hint": "copper.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "DealCloud",
+      "slug": "dealcloud",
+      "category": "CRM and Sales",
+      "hint": "api.docs.dealcloud.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "HubSpot",
+      "slug": "hubspot",
+      "category": "CRM and Sales",
+      "hint": "hubspot.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Pipedrive",
+      "slug": "pipedrive",
+      "category": "CRM and Sales",
+      "hint": "pipedrive.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "hmac_signed"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Podio",
+      "slug": "podio",
+      "category": "CRM and Sales",
+      "hint": "podio.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Salesforce",
+      "slug": "salesforce",
+      "category": "CRM and Sales",
+      "hint": "salesforce.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Twenty",
+      "slug": "twenty",
+      "category": "CRM and Sales",
+      "hint": "twenty.com (open-source CRM)",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Zoho CRM",
+      "slug": "zoho-crm",
+      "category": "CRM and Sales",
+      "hint": "zoho.com/crm",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "hmac_signed"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Aircall",
+      "slug": "aircall",
+      "category": "Communications and Messaging",
+      "hint": "aircall.io",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Discord",
+      "slug": "discord",
+      "category": "Communications and Messaging",
+      "hint": "discord.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": false,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Lark (Larksuite)",
+      "slug": "lark-larksuite",
+      "category": "Communications and Messaging",
+      "hint": "open.larksuite.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Pumble",
+      "slug": "pumble",
+      "category": "Communications and Messaging",
+      "hint": "pumble.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "hmac_signed"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Slack",
+      "slug": "slack",
+      "category": "Communications and Messaging",
+      "hint": "slack.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Telegram",
+      "slug": "telegram",
+      "category": "Communications and Messaging",
+      "hint": "core.telegram.org",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Twilio",
+      "slug": "twilio",
+      "category": "Communications and Messaging",
+      "hint": "twilio.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Vonage",
+      "slug": "vonage",
+      "category": "Communications and Messaging",
+      "hint": "developer.vonage.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "WhatsApp Business",
+      "slug": "whatsapp-business",
+      "category": "Communications and Messaging",
+      "hint": "developers.facebook.com/docs/whatsapp",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Zoho Cliq",
+      "slug": "zoho-cliq",
+      "category": "Communications and Messaging",
+      "hint": "zoho.com/cliq",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "app_review",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "app_review_required",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Ahrefs",
+      "slug": "ahrefs",
+      "category": "Data, SEO and Scraping",
+      "hint": "ahrefs.com/api",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": false,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Apify",
+      "slug": "apify",
+      "category": "Data, SEO and Scraping",
+      "hint": "docs.apify.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Bright Data",
+      "slug": "bright-data",
+      "category": "Data, SEO and Scraping",
+      "hint": "brightdata.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Clay",
+      "slug": "clay",
+      "category": "Data, SEO and Scraping",
+      "hint": "clay.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "DataForSEO",
+      "slug": "dataforseo",
+      "category": "Data, SEO and Scraping",
+      "hint": "docs.dataforseo.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": false,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Firecrawl",
+      "slug": "firecrawl",
+      "category": "Data, SEO and Scraping",
+      "hint": "firecrawl.dev",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "MrScraper",
+      "slug": "mrscraper",
+      "category": "Data, SEO and Scraping",
+      "hint": "docs.mrscraper.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "SE Ranking",
+      "slug": "se-ranking",
+      "category": "Data, SEO and Scraping",
+      "hint": "seranking.com/api",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Sherlock",
+      "slug": "sherlock",
+      "category": "Data, SEO and Scraping",
+      "hint": "github.com/sherlock-project/sherlock",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Waterfall.io",
+      "slug": "waterfall-io",
+      "category": "Data, SEO and Scraping",
+      "hint": "waterfall.io (contact/company intel)",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Cloudflare",
+      "slug": "cloudflare",
+      "category": "Developer, Infra and Data platforms",
+      "hint": "developers.cloudflare.com/api",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Datadog",
+      "slug": "datadog",
+      "category": "Developer, Infra and Data platforms",
+      "hint": "docs.datadoghq.com/api",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "GitHub",
+      "slug": "github",
+      "category": "Developer, Infra and Data platforms",
+      "hint": "docs.github.com/rest",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "MongoDB Atlas",
+      "slug": "mongodb-atlas",
+      "category": "Developer, Infra and Data platforms",
+      "hint": "mongodb.com/docs/atlas/api",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Neo4j",
+      "slug": "neo4j",
+      "category": "Developer, Infra and Data platforms",
+      "hint": "neo4j.com/docs/api",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": false,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Netlify",
+      "slug": "netlify",
+      "category": "Developer, Infra and Data platforms",
+      "hint": "docs.netlify.com/api",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Sentry",
+      "slug": "sentry",
+      "category": "Developer, Infra and Data platforms",
+      "hint": "docs.sentry.io/api",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Snowflake",
+      "slug": "snowflake",
+      "category": "Developer, Infra and Data platforms",
+      "hint": "docs.snowflake.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Supabase",
+      "slug": "supabase",
+      "category": "Developer, Infra and Data platforms",
+      "hint": "supabase.com/docs",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Vercel",
+      "slug": "vercel",
+      "category": "Developer, Infra and Data platforms",
+      "hint": "vercel.com/docs/rest-api",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Amazon Selling Partner",
+      "slug": "amazon-selling-partner",
+      "category": "Ecommerce",
+      "hint": "developer-docs.amazon.com/sp-api",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "app_review",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "app_review_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "BigCommerce",
+      "slug": "bigcommerce",
+      "category": "Ecommerce",
+      "hint": "developer.bigcommerce.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Ecwid",
+      "slug": "ecwid",
+      "category": "Ecommerce",
+      "hint": "api-docs.ecwid.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "hmac_signed"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Gumroad",
+      "slug": "gumroad",
+      "category": "Ecommerce",
+      "hint": "gumroad.com/api",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "app_review",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "app_review_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Magento (Adobe Commerce)",
+      "slug": "magento-adobe-commerce",
+      "category": "Ecommerce",
+      "hint": "developer.adobe.com/commerce",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": false,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud",
+      "category": "Ecommerce",
+      "hint": "developer.salesforce.com/docs/commerce",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Shopify",
+      "slug": "shopify",
+      "category": "Ecommerce",
+      "hint": "shopify.dev",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "hmac_signed"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Squarespace",
+      "slug": "squarespace",
+      "category": "Ecommerce",
+      "hint": "developers.squarespace.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "app_review",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "app_review_required",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": false,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "WooCommerce",
+      "slug": "woocommerce",
+      "category": "Ecommerce",
+      "hint": "woocommerce.com/document/woocommerce-rest-api",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "app_review",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "app_review_required",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "fanbasis",
+      "slug": "fanbasis",
+      "category": "Ecommerce",
+      "hint": "fanbasis.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Binance",
+      "slug": "binance",
+      "category": "Finance and Fintech",
+      "hint": "binance-docs.github.io",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Brex",
+      "slug": "brex",
+      "category": "Finance and Fintech",
+      "hint": "developer.brex.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "hmac_signed"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Paygent Connect",
+      "slug": "paygent-connect",
+      "category": "Finance and Fintech",
+      "hint": "paygent (NMI-powered)",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": false,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "PitchBook",
+      "slug": "pitchbook",
+      "category": "Finance and Fintech",
+      "hint": "pitchbook.com (research API)",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Plaid",
+      "slug": "plaid",
+      "category": "Finance and Fintech",
+      "hint": "plaid.com/docs",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "QuickBooks",
+      "slug": "quickbooks",
+      "category": "Finance and Fintech",
+      "hint": "developer.intuit.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "app_review",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "app_review_required",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Ramp",
+      "slug": "ramp",
+      "category": "Finance and Fintech",
+      "hint": "docs.ramp.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "hmac_signed"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Stripe",
+      "slug": "stripe",
+      "category": "Finance and Fintech",
+      "hint": "stripe.com/docs/api",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Xero",
+      "slug": "xero",
+      "category": "Finance and Fintech",
+      "hint": "developer.xero.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "hmac_signed"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": false,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "iPayX",
+      "slug": "ipayx",
+      "category": "Finance and Fintech",
+      "hint": "ipayx.ai/docs",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "hmac_signed"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "GoHighLevel",
+      "slug": "gohighlevel",
+      "category": "Marketing, Ads, Email and Social",
+      "hint": "highlevel.stoplight.io",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "hmac_signed"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Google Ads",
+      "slug": "google-ads",
+      "category": "Marketing, Ads, Email and Social",
+      "hint": "developers.google.com/google-ads",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Klaviyo",
+      "slug": "klaviyo",
+      "category": "Marketing, Ads, Email and Social",
+      "hint": "developers.klaviyo.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "LinkedIn Ads",
+      "slug": "linkedin-ads",
+      "category": "Marketing, Ads, Email and Social",
+      "hint": "learn.microsoft.com/linkedin/marketing",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "app_review",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "app_review_required",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Mailchimp",
+      "slug": "mailchimp",
+      "category": "Marketing, Ads, Email and Social",
+      "hint": "mailchimp.com/developer",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": false,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Meta Ads",
+      "slug": "meta-ads",
+      "category": "Marketing, Ads, Email and Social",
+      "hint": "developers.facebook.com/docs/marketing-apis",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "hmac_signed"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Pinterest",
+      "slug": "pinterest",
+      "category": "Marketing, Ads, Email and Social",
+      "hint": "developers.pinterest.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "hmac_signed"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "SendGrid",
+      "slug": "sendgrid",
+      "category": "Marketing, Ads, Email and Social",
+      "hint": "sendgrid.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Threads (Meta)",
+      "slug": "threads-meta",
+      "category": "Marketing, Ads, Email and Social",
+      "hint": "developers.facebook.com/docs/threads",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "systeme.io",
+      "slug": "systeme-io",
+      "category": "Marketing, Ads, Email and Social",
+      "hint": "systeme.io (funnel builder)",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "partner_gated",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "needs_outreach",
+      "blocker": "partnership_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Airtable",
+      "slug": "airtable",
+      "category": "Productivity and Project Management",
+      "hint": "airtable.com/developers",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "hmac_signed"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Asana",
+      "slug": "asana",
+      "category": "Productivity and Project Management",
+      "hint": "developers.asana.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "admin_approval",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "admin_approval_required",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "ClickUp",
+      "slug": "clickup",
+      "category": "Productivity and Project Management",
+      "hint": "clickup.com/api",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Coda",
+      "slug": "coda",
+      "category": "Productivity and Project Management",
+      "hint": "coda.io/developers",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "admin_approval",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "admin_approval_required",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Harvest",
+      "slug": "harvest",
+      "category": "Productivity and Project Management",
+      "hint": "help.getharvest.com/api-v2",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "admin_approval",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "admin_approval_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Jira",
+      "slug": "jira",
+      "category": "Productivity and Project Management",
+      "hint": "developer.atlassian.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "admin_approval",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "admin_approval_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Linear",
+      "slug": "linear",
+      "category": "Productivity and Project Management",
+      "hint": "developers.linear.app",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "admin_approval",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "admin_approval_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": false,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Monday.com",
+      "slug": "monday-com",
+      "category": "Productivity and Project Management",
+      "hint": "developer.monday.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Notion",
+      "slug": "notion",
+      "category": "Productivity and Project Management",
+      "hint": "developers.notion.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "admin_approval",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "admin_approval_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Smartsheet",
+      "slug": "smartsheet",
+      "category": "Productivity and Project Management",
+      "hint": "smartsheet.com/developers",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "admin_approval",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "admin_approval_required",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Freshdesk",
+      "slug": "freshdesk",
+      "category": "Support and Helpdesk",
+      "hint": "freshdesk.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "broad",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Front",
+      "slug": "front",
+      "category": "Support and Helpdesk",
+      "hint": "front.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Gladly",
+      "slug": "gladly",
+      "category": "Support and Helpdesk",
+      "hint": "gladly.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Gorgias",
+      "slug": "gorgias",
+      "category": "Support and Helpdesk",
+      "hint": "gorgias.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "graphql"
+      ],
+      "api_breadth": "very_broad",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "low",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Help Scout",
+      "slug": "help-scout",
+      "category": "Support and Helpdesk",
+      "hint": "helpscout.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "official",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Intercom",
+      "slug": "intercom",
+      "category": "Support and Helpdesk",
+      "hint": "intercom.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "oauth2"
+      ],
+      "access_tier": "self_serve_paid",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "paid_plan_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": false,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "LiveAgent",
+      "slug": "liveagent",
+      "category": "Support and Helpdesk",
+      "hint": "liveagent.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "hmac_signed"
+      ],
+      "access_tier": "admin_approval",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_with_care",
+      "blocker": "admin_approval_required",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Plain",
+      "slug": "plain",
+      "category": "Support and Helpdesk",
+      "hint": "plain.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "bearer_token"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "community",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": false,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Pylon",
+      "slug": "pylon",
+      "category": "Support and Helpdesk",
+      "hint": "usepylon.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "api_key"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "narrow",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "high",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    },
+    {
+      "app": "Zendesk",
+      "slug": "zendesk",
+      "category": "Support and Helpdesk",
+      "hint": "zendesk.com",
+      "one_liner": "Sample record \u2014 not real research.",
+      "auth_methods": [
+        "hmac_signed"
+      ],
+      "access_tier": "self_serve_free",
+      "api_types": [
+        "rest"
+      ],
+      "api_breadth": "moderate",
+      "api_breadth_note": "",
+      "mcp_status": "none",
+      "mcp_url": null,
+      "verdict": "build_now",
+      "blocker": "none",
+      "blocker_note": "",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "url": "https://example.invalid/docs",
+          "excerpt": "Synthetic placeholder text.",
+          "supports": [
+            "auth_methods"
+          ]
+        }
+      ],
+      "validation": {
+        "ok": true,
+        "errors": [],
+        "grounded": 2,
+        "ungrounded": 0
+      },
+      "pass": null,
+      "human_checked": false,
+      "notes": ""
+    }
+  ]
+}
