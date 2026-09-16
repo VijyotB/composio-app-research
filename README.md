@@ -4,7 +4,7 @@ Research pipeline for the Composio AI Product Ops take-home. It researches 100 a
 grades each on how buildable it is as an agent toolkit, and emits a single
 self-contained HTML case study.
 
-**Live case study:** _(add your deployed URL)_
+**Live case study:** https://composio-app-research-roan.vercel.app
 
 ---
 
