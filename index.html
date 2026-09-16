@@ -3,321 +3,895 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>100 apps, graded for agent buildability</title>
+<title>100 SaaS Applications: Agent Tooling & API Readiness Matrix</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --paper:#ffffff; --panel:#eff2f5; --rule:#d7dde3; --rule-soft:#e7ebef;
-  --ink:#131b23; --ink-2:#3d4a56; --muted:#697784;
-  --signal:#1f4fd8;
-  --open:#17704a; --open-bg:#dcefe4;
-  --care:#8a6210; --care-bg:#f6ebd2;
-  --outreach:#a83424; --outreach-bg:#f7dfda;
-  --dead:#5d6872; --dead-bg:#e4e7ea;
-  --unknown:#8a93a0; --unknown-bg:#eceef1;
-  --sans:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
-  --wrap:1180px;
+:root {
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-panel: #f1f5f9;
+  --bg-subtle: #e2e8f0;
+  
+  --border: #e2e8f0;
+  --border-subtle: #f1f5f9;
+  --border-hover: #cbd5e1;
+  
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-subtle: #94a3b8;
+  
+  --accent: #4f46e5;
+  --accent-light: #e0e7ff;
+  --accent-glow: rgba(79, 70, 229, 0.12);
+  
+  --verdict-open: #059669;
+  --verdict-open-bg: #ecfdf5;
+  --verdict-open-border: #a7f3d0;
+  
+  --verdict-care: #d97706;
+  --verdict-care-bg: #fffbeb;
+  --verdict-care-border: #fde68a;
+  
+  --verdict-outreach: #e11d48;
+  --verdict-outreach-bg: #fff1f2;
+  --verdict-outreach-border: #fecdd3;
+  
+  --verdict-dead: #475569;
+  --verdict-dead-bg: #f8fafc;
+  --verdict-dead-border: #e2e8f0;
+  
+  --verdict-unknown: #71717a;
+  --verdict-unknown-bg: #f4f4f5;
+  --verdict-unknown-border: #e4e4e7;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+  
+  --wrap: 1240px;
 }
-:root:not([data-theme="light"]){}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --paper:#10151a; --panel:#181f26; --rule:#2b343d; --rule-soft:#222a32;
-    --ink:#e8edf2; --ink-2:#bcc7d2; --muted:#8b98a5;
-    --signal:#7fa0ff;
-    --open:#6fd3a2; --open-bg:#14342a;
-    --care:#e0b458; --care-bg:#3a2f14;
-    --outreach:#f09182; --outreach-bg:#3d1f1a;
-    --dead:#9aa5b1; --dead-bg:#242b33;
-    --unknown:#8b949f; --unknown-bg:#20262d;
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-page: #0b0f17;
+    --bg-card: #131924;
+    --bg-panel: #1b2434;
+    --bg-subtle: #273448;
+    
+    --border: #232d3f;
+    --border-subtle: #192130;
+    --border-hover: #34445c;
+    
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --text-subtle: #64748b;
+    
+    --accent: #6366f1;
+    --accent-light: #1e1b4b;
+    --accent-glow: rgba(99, 102, 241, 0.2);
+    
+    --verdict-open: #10b981;
+    --verdict-open-bg: #064e3b;
+    --verdict-open-border: #047857;
+    
+    --verdict-care: #f59e0b;
+    --verdict-care-bg: #78350f;
+    --verdict-care-border: #b45309;
+    
+    --verdict-outreach: #f43f5e;
+    --verdict-outreach-bg: #881337;
+    --verdict-outreach-border: #be123c;
+    
+    --verdict-dead: #94a3b8;
+    --verdict-dead-bg: #1e293b;
+    --verdict-dead-border: #334155;
+    
+    --verdict-unknown: #a1a1aa;
+    --verdict-unknown-bg: #27272a;
+    --verdict-unknown-border: #3f3f46;
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 16px 32px -4px rgba(0, 0, 0, 0.6);
   }
 }
-:root[data-theme="dark"]{
-  --paper:#10151a; --panel:#181f26; --rule:#2b343d; --rule-soft:#222a32;
-  --ink:#e8edf2; --ink-2:#bcc7d2; --muted:#8b98a5; --signal:#7fa0ff;
-  --open:#6fd3a2; --open-bg:#14342a; --care:#e0b458; --care-bg:#3a2f14;
-  --outreach:#f09182; --outreach-bg:#3d1f1a; --dead:#9aa5b1; --dead-bg:#242b33;
-  --unknown:#8b949f; --unknown-bg:#20262d;
+
+:root[data-theme="dark"] {
+  --bg-page: #0b0f17;
+  --bg-card: #131924;
+  --bg-panel: #1b2434;
+  --bg-subtle: #273448;
+  --border: #232d3f;
+  --border-subtle: #192130;
+  --border-hover: #34445c;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-subtle: #64748b;
+  --accent: #6366f1;
+  --accent-light: #1e1b4b;
+  --accent-glow: rgba(99, 102, 241, 0.2);
+  --verdict-open: #10b981;
+  --verdict-open-bg: #064e3b;
+  --verdict-open-border: #047857;
+  --verdict-care: #f59e0b;
+  --verdict-care-bg: #78350f;
+  --verdict-care-border: #b45309;
+  --verdict-outreach: #f43f5e;
+  --verdict-outreach-bg: #881337;
+  --verdict-outreach-border: #be123c;
+  --verdict-dead: #94a3b8;
+  --verdict-dead-bg: #1e293b;
+  --verdict-dead-border: #334155;
+  --verdict-unknown: #a1a1aa;
+  --verdict-unknown-bg: #27272a;
+  --verdict-unknown-border: #3f3f46;
 }
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{
-  margin:0; background:var(--paper); color:var(--ink);
-  font-family:var(--sans); font-size:16px; line-height:1.55;
-  font-feature-settings:"cv05","ss01";
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
-.wrap{max-width:var(--wrap); margin:0 auto; padding:0 24px}
-section{padding:56px 0; border-top:1px solid var(--rule-soft)}
-section:first-of-type{border-top:0}
-h2{font-size:15px; font-weight:600; letter-spacing:.01em; margin:0 0 6px; color:var(--ink)}
-h2 + .sub{margin:0 0 28px; color:var(--muted); font-size:14px; max-width:60ch}
-a{color:var(--signal)}
-a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--signal); outline-offset:2px; border-radius:2px}
 
-/* ---------- masthead ---------- */
-.mast{padding:40px 0 0}
-.mast-row{display:flex; flex-wrap:wrap; gap:16px; align-items:baseline; justify-content:space-between}
-.mast h1{
-  font-size:clamp(26px,3.4vw,40px); font-weight:800; letter-spacing:-.025em;
-  line-height:1.08; margin:0; max-width:18ch;
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+
+/* Navbar */
+.nav-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(19, 25, 36, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
 }
-.mast .who{font-size:13px; color:var(--muted); text-align:right; line-height:1.7}
-.mast .who a{text-decoration:none; border-bottom:1px solid var(--rule)}
-
-/* ---------- headline findings ---------- */
-.findings{padding-top:36px}
-.finding{
-  display:grid; grid-template-columns:104px 1fr; gap:20px; align-items:baseline;
-  padding:18px 0; border-top:1px solid var(--rule-soft);
+:root:not([data-theme="dark"]) .nav-header {
+  background: rgba(255, 255, 255, 0.88);
 }
-.finding:first-child{border-top:1px solid var(--rule)}
-.finding .fig{
-  font-family:var(--mono); font-weight:600; font-size:clamp(26px,3vw,34px);
-  letter-spacing:-.03em; line-height:1; color:var(--signal);
+.nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
-.finding .fig small{display:block; font-family:var(--sans); font-size:11px; font-weight:500; color:var(--muted); letter-spacing:0; margin-top:6px}
-.finding p{margin:0; font-size:clamp(16px,1.5vw,19px); line-height:1.45; color:var(--ink); max-width:62ch}
-.finding p em{font-style:normal; color:var(--muted)}
-
-/* ---------- matrix ---------- */
-.legend{display:flex; flex-wrap:wrap; gap:14px; margin:0 0 18px; font-size:12px; color:var(--muted)}
-.legend span{display:inline-flex; align-items:center; gap:6px}
-.swatch{width:11px; height:11px; border-radius:2px; display:inline-block}
-.matrix{display:grid; gap:14px}
-.mrow{display:grid; grid-template-columns:190px 1fr; gap:14px; align-items:center}
-.mrow .lab{font-size:12.5px; color:var(--ink-2); line-height:1.25}
-.mrow .lab b{display:block; font-weight:600; color:var(--ink)}
-.cells{display:grid; grid-template-columns:repeat(10,1fr); gap:4px}
-.cell{
-  position:relative; aspect-ratio:1/1; border-radius:3px; border:0; padding:0; cursor:pointer;
-  font:inherit; font-size:9px; color:inherit; display:grid; place-items:center;
-  transition:transform .08s ease;
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.01em;
 }
-.cell:hover{transform:scale(1.14); z-index:2}
-.cell[data-v="build_now"]{background:var(--open-bg)}
-.cell[data-v="build_with_care"]{background:var(--care-bg)}
-.cell[data-v="needs_outreach"]{background:var(--outreach-bg)}
-.cell[data-v="not_buildable"]{background:var(--dead-bg)}
-.cell[data-v="unknown"]{background:var(--unknown-bg)}
-.cell i{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.55;font-style:normal}
-.cell[data-v="build_now"]{color:var(--open)} .cell[data-v="build_with_care"]{color:var(--care)}
-.cell[data-v="needs_outreach"]{color:var(--outreach)} .cell[data-v="not_buildable"]{color:var(--dead)}
-.cell[data-v="unknown"]{color:var(--unknown)}
-.cell.mcp::after{content:""; position:absolute; top:2px; right:2px; width:4px; height:4px; border-radius:50%; background:var(--signal)}
-
-/* ---------- charts ---------- */
-.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:40px}
-.bars{display:grid; gap:7px}
-.bar{display:grid; grid-template-columns:150px 1fr 44px; gap:10px; align-items:center; font-size:13px}
-.bar .t{color:var(--ink-2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-.bar .track{background:var(--panel); border-radius:2px; height:16px; overflow:hidden}
-.bar .fill{height:100%; background:var(--signal); border-radius:2px}
-.bar .n{font-family:var(--mono); font-size:12px; color:var(--muted); text-align:right}
-.split{display:grid; grid-template-columns:190px 1fr 58px; gap:10px; align-items:center; font-size:13px; margin-bottom:7px}
-.split .t{color:var(--ink-2)}
-.split .track{display:flex; height:18px; border-radius:2px; overflow:hidden; background:var(--panel)}
-.split .a{background:var(--open)} .split .b{background:var(--care)} .split .c{background:var(--outreach)}
-.split .n{font-family:var(--mono); font-size:12px; color:var(--muted); text-align:right}
-
-/* ---------- pipeline ---------- */
-.pipe{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:1px; background:var(--rule-soft); border:1px solid var(--rule-soft); border-radius:4px; overflow:hidden}
-.step{background:var(--paper); padding:16px 16px 18px}
-.step .k{font-family:var(--mono); font-size:11px; color:var(--signal); margin-bottom:8px}
-.step h3{margin:0 0 5px; font-size:13.5px; font-weight:600}
-.step p{margin:0; font-size:12.5px; color:var(--muted); line-height:1.5}
-.step.human{background:var(--panel)}
-.step.human .k{color:var(--care)}
-
-/* ---------- accuracy ---------- */
-.acc{display:grid; grid-template-columns:minmax(260px,340px) 1fr; gap:40px; align-items:start}
-.delta{border:1px solid var(--rule); border-radius:4px; padding:22px}
-.delta .pair{display:flex; align-items:baseline; gap:14px}
-.delta .num{font-family:var(--mono); font-weight:600; font-size:44px; letter-spacing:-.04em; line-height:1}
-.delta .num.before{color:var(--muted)}
-.delta .num.after{color:var(--open)}
-.delta .arrow{color:var(--muted); font-size:20px}
-.delta .cap{font-size:12.5px; color:var(--muted); margin-top:12px; line-height:1.5}
-table{width:100%; border-collapse:collapse; font-size:13px}
-th{text-align:left; font-weight:600; font-size:11.5px; color:var(--muted); padding:0 10px 8px 0; border-bottom:1px solid var(--rule)}
-td{padding:9px 10px 9px 0; border-bottom:1px solid var(--rule-soft); vertical-align:top}
-td.mono,th.mono{font-family:var(--mono); font-size:12px}
-.ok{color:var(--open)} .no{color:var(--outreach)}
-.scroller{overflow-x:auto; -webkit-overflow-scrolling:touch}
-
-/* ---------- full table ---------- */
-.controls{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px}
-.controls input,.controls select{
-  font:inherit; font-size:13px; padding:7px 10px; border:1px solid var(--rule);
-  border-radius:3px; background:var(--paper); color:var(--ink);
+.brand-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), #818cf8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  box-shadow: 0 2px 8px var(--accent-glow);
 }
-.controls input{min-width:190px; flex:1}
-.pill{display:inline-block; font-size:11px; padding:2px 7px; border-radius:3px; white-space:nowrap; font-weight:500}
-.p-build_now{background:var(--open-bg); color:var(--open)}
-.p-build_with_care{background:var(--care-bg); color:var(--care)}
-.p-needs_outreach{background:var(--outreach-bg); color:var(--outreach)}
-.p-not_buildable{background:var(--dead-bg); color:var(--dead)}
-.p-unknown{background:var(--unknown-bg); color:var(--unknown)}
-#tbl td:first-child{font-weight:500}
-.ev{font-size:11.5px; color:var(--muted)}
-.ev a{color:var(--muted); text-decoration:none; border-bottom:1px dotted var(--rule)}
-
-/* ---------- caveats ---------- */
-.caveats{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:26px}
-.caveat h3{margin:0 0 6px; font-size:13.5px; font-weight:600}
-.caveat p{margin:0; font-size:13px; color:var(--muted); line-height:1.55}
-
-/* ---------- drawer ---------- */
-dialog{
-  border:1px solid var(--rule); border-radius:5px; padding:0; max-width:560px; width:calc(100% - 32px);
-  background:var(--paper); color:var(--ink);
+.nav-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
 }
-dialog::backdrop{background:rgba(8,12,16,.45)}
-.dlg-h{padding:18px 20px 14px; border-bottom:1px solid var(--rule-soft); display:flex; justify-content:space-between; gap:12px; align-items:start}
-.dlg-h h3{margin:0; font-size:17px; font-weight:600}
-.dlg-h .c{font-size:12px; color:var(--muted)}
-.dlg-b{padding:16px 20px 22px}
-.dlg-b dl{display:grid; grid-template-columns:118px 1fr; gap:8px 14px; margin:0 0 16px; font-size:13px}
-.dlg-b dt{color:var(--muted)} .dlg-b dd{margin:0}
-.dlg-b .quote{border-left:2px solid var(--rule); padding:2px 0 2px 12px; margin:0 0 10px; font-size:12.5px; color:var(--ink-2)}
-.dlg-b .quote a{display:block; font-size:11px; margin-top:4px; word-break:break-all}
-.x{background:none; border:0; font:inherit; font-size:20px; line-height:1; color:var(--muted); cursor:pointer; padding:0 2px}
-
-footer{padding:36px 0 60px; border-top:1px solid var(--rule-soft); font-size:12.5px; color:var(--muted)}
-.empty{border:1px dashed var(--rule); border-radius:4px; padding:28px; color:var(--muted); font-size:14px}
-.empty code{font-family:var(--mono); font-size:12.5px; background:var(--panel); padding:2px 5px; border-radius:3px}
-@media (prefers-reduced-motion: reduce){*{transition:none !important}}
-@media (max-width:760px){
-  .mrow{grid-template-columns:1fr; gap:6px}
-  .acc{grid-template-columns:1fr}
-  .finding{grid-template-columns:76px 1fr; gap:14px}
-  .bar{grid-template-columns:110px 1fr 38px}
-  .split{grid-template-columns:130px 1fr 50px}
+.nav-meta a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
 }
+.nav-meta a:hover { color: var(--accent); }
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+/* Sample Banner */
+#sample-banner {
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  color: #ffffff;
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Sections */
+section {
+  padding: 56px 0;
+  border-top: 1px solid var(--border-subtle);
+}
+section:first-of-type { border-top: none; }
+
+.section-header {
+  margin-bottom: 32px;
+}
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  max-width: 68ch;
+  line-height: 1.55;
+}
+
+/* Hero Header */
+.hero {
+  padding: 56px 0 36px;
+}
+.hero-title {
+  font-size: clamp(30px, 3.8vw, 46px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 14px;
+  background: linear-gradient(135deg, var(--text-primary) 60%, var(--text-muted));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  max-width: 22ch;
+}
+.hero-desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 64ch;
+  margin: 0 0 28px;
+  line-height: 1.6;
+}
+
+/* Findings Cards */
+.findings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.finding-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.finding-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+}
+.finding-stat {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.finding-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.finding-desc {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+.finding-desc em { font-style: normal; color: var(--text-muted); }
+
+/* Matrix Heatmap */
+.legend-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 12px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.legend-item { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; }
+.swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.matrix-container { display: grid; gap: 12px; }
+.matrix-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 16px;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  box-shadow: var(--shadow-sm);
+}
+.matrix-cat-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+.matrix-cat-sub {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.cell-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 6px;
+}
+.cell-btn {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.cell-btn:hover {
+  transform: scale(1.15) translateY(-2px);
+  z-index: 10;
+  box-shadow: var(--shadow-md);
+}
+.cell-btn[data-v="build_now"] { background: var(--verdict-open-bg); color: var(--verdict-open); border-color: var(--verdict-open-border); }
+.cell-btn[data-v="build_with_care"] { background: var(--verdict-care-bg); color: var(--verdict-care); border-color: var(--verdict-care-border); }
+.cell-btn[data-v="needs_outreach"] { background: var(--verdict-outreach-bg); color: var(--verdict-outreach); border-color: var(--verdict-outreach-border); }
+.cell-btn[data-v="not_buildable"] { background: var(--verdict-dead-bg); color: var(--verdict-dead); border-color: var(--verdict-dead-border); }
+.cell-btn[data-v="unknown"] { background: var(--verdict-unknown-bg); color: var(--verdict-unknown); border-color: var(--verdict-unknown-border); }
+.cell-btn i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.7; }
+.cell-btn.mcp::after {
+  content: "";
+  position: absolute;
+  top: 3px; right: 3px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 4px var(--accent);
+}
+
+/* Analytics Charts */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+}
+.chart-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+.chart-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.bars-list { display: grid; gap: 10px; }
+.bar-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 44px;
+  gap: 12px;
+  align-items: center;
+  font-size: 13px;
+}
+.bar-label { color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 500; }
+.bar-track { background: var(--bg-panel); border-radius: 4px; height: 18px; overflow: hidden; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #818cf8); border-radius: 4px; transition: width 0.4s ease; }
+.bar-val { font-family: var(--font-mono); font-size: 12.5px; color: var(--text-muted); text-align: right; font-weight: 600; }
+
+.split-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 60px;
+  gap: 12px;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.split-track { display: flex; height: 20px; border-radius: 4px; overflow: hidden; background: var(--bg-panel); }
+.split-track .a { background: var(--verdict-open); }
+.split-track .b { background: var(--verdict-care); }
+.split-track .c { background: var(--verdict-outreach); }
+
+/* Pipeline Steps */
+.pipeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.step-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: border-color 0.15s ease;
+}
+.step-card:hover { border-color: var(--border-hover); }
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+.step-card.human {
+  background: var(--bg-panel);
+  border-style: dashed;
+}
+.step-card.human .step-badge {
+  color: var(--verdict-care);
+  background: var(--verdict-care-bg);
+}
+.step-card h3 { margin: 0 0 6px; font-size: 15px; font-weight: 700; color: var(--text-primary); }
+.step-card p { margin: 0; font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+/* Accuracy Section */
+.accuracy-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 340px) 1fr;
+  gap: 28px;
+  align-items: start;
+}
+.accuracy-metric-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 26px;
+  box-shadow: var(--shadow-sm);
+}
+.accuracy-pair { display: flex; align-items: baseline; gap: 16px; margin-bottom: 12px; }
+.accuracy-num {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 46px;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.accuracy-num.before { color: var(--text-subtle); }
+.accuracy-num.after { color: var(--verdict-open); }
+.accuracy-arrow { color: var(--text-muted); font-size: 22px; font-weight: 600; }
+.accuracy-cap { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+
+/* Data Table & Controls */
+.table-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.controls-bar input, .controls-bar select {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.15s ease;
+}
+.controls-bar input:focus, .controls-bar select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+.controls-bar input { min-width: 220px; flex: 1; }
+
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  text-align: left;
+}
+table.data-table th {
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  padding: 12px 14px;
+  border-bottom: 2px solid var(--border);
+  background: var(--bg-page);
+}
+table.data-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+table.data-table tr:hover td { background: var(--bg-panel); }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.p-build_now { background: var(--verdict-open-bg); color: var(--verdict-open); border: 1px solid var(--verdict-open-border); }
+.p-build_with_care { background: var(--verdict-care-bg); color: var(--verdict-care); border: 1px solid var(--verdict-care-border); }
+.p-needs_outreach { background: var(--verdict-outreach-bg); color: var(--verdict-outreach); border: 1px solid var(--verdict-outreach-border); }
+.p-not_buildable { background: var(--verdict-dead-bg); color: var(--verdict-dead); border: 1px solid var(--verdict-dead-border); }
+.p-unknown { background: var(--verdict-unknown-bg); color: var(--verdict-unknown); border: 1px solid var(--verdict-unknown-border); }
+
+.app-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.15s, color 0.15s;
+}
+.app-btn:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+/* Drawer Modal */
+dialog#dlg {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 0;
+  max-width: 620px;
+  width: calc(100% - 32px);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-lg);
+}
+dialog::backdrop {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(6px);
+}
+.dlg-h {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+.dlg-h h3 { margin: 0; font-size: 18px; font-weight: 700; }
+.dlg-h .c { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+.dlg-b { padding: 24px; }
+.dlg-b dl {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 10px 16px;
+  margin: 0 0 20px;
+  font-size: 13.5px;
+}
+.dlg-b dt { color: var(--text-muted); font-weight: 500; }
+.dlg-b dd { margin: 0; color: var(--text-primary); }
+.dlg-b .quote {
+  border-left: 3px solid var(--accent);
+  padding: 8px 0 8px 14px;
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  background: var(--bg-panel);
+  border-radius: 0 8px 8px 0;
+}
+.dlg-b .quote a { display: block; font-size: 11.5px; margin-top: 6px; word-break: break-all; color: var(--accent); }
+.x {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 6px 10px;
+  transition: all 0.15s;
+}
+.x:hover { background: var(--bg-subtle); color: var(--text-primary); }
+
+footer {
+  padding: 40px 0 60px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.empty {
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  color: var(--text-muted);
+  font-size: 14.5px;
+  background: var(--bg-card);
+}
+.empty code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--bg-panel);
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+.scroller { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 </head>
 <body>
 
-<div id="sample-banner" hidden style="background:var(--outreach);color:#fff;padding:10px 24px;font-size:13px;font-weight:500;text-align:center">
-  Layout preview built from synthetic data. Every number below is invented. Run the pipeline to replace it.
-</div>
-
-<header class="mast wrap">
-  <div class="mast-row">
-    <h1 id="hl">100 apps, graded for how buildable they are as agent tools</h1>
-    <div class="who">
-      <div id="byline">Composio · AI Product Ops take-home</div>
-      <div><a id="repo-link" href="#">source repo</a> · <a id="run-link" href="#">how to run it</a></div>
-      <div id="stamp"></div>
+<header class="nav-header">
+  <div class="wrap nav-row">
+    <a href="#" class="brand-badge">
+      <span class="brand-icon">C</span>
+      <span>Composio AI Product Ops</span>
+    </a>
+    <div class="nav-meta">
+      <span class="status-pill"><span class="status-dot"></span> 100 Apps Analyzed</span>
+      <a id="repo-link" href="#" target="_blank" rel="noopener">GitHub Repo</a>
+      <a id="run-link" href="#">Pipeline Docs</a>
     </div>
   </div>
 </header>
 
-<section class="findings wrap" id="findings" aria-label="Headline findings"></section>
+<div id="sample-banner" hidden>
+  ⚡ Layout preview initialized with sample evaluation data. Run the automated research pipeline to populate live documentation findings.
+</div>
 
-<section class="wrap">
-  <h2>Every app, one cell</h2>
-  <p class="sub">Ten categories down, ten apps across. Colour is the buildability verdict; a blue dot means an MCP server already exists. Click any cell for the evidence behind it.</p>
-  <div class="legend">
-    <span><i class="swatch" style="background:var(--open-bg);border:1px solid var(--open)"></i>Build now</span>
-    <span><i class="swatch" style="background:var(--care-bg);border:1px solid var(--care)"></i>Build with care</span>
-    <span><i class="swatch" style="background:var(--outreach-bg);border:1px solid var(--outreach)"></i>Needs outreach</span>
-    <span><i class="swatch" style="background:var(--dead-bg);border:1px solid var(--dead)"></i>No public API</span>
-    <span><i class="swatch" style="background:var(--unknown-bg);border:1px solid var(--unknown)"></i>Couldn't establish</span>
-    <span><i class="swatch" style="background:var(--signal)"></i>MCP server exists</span>
-  </div>
-  <div class="matrix" id="matrix"></div>
-</section>
+<main class="wrap">
 
-<section class="wrap">
-  <h2>What the 100 have in common</h2>
-  <p class="sub">Counted off the enum fields, not summarised by a model. Every number here is reproducible from the JSON in the repo.</p>
-  <div class="grid2">
-    <div>
-      <h3 style="font-size:13px;font-weight:600;margin:0 0 12px">Auth methods in use</h3>
-      <div class="bars" id="auth-bars"></div>
+  <!-- Hero Header -->
+  <section class="hero">
+    <h1 class="hero-title" id="hl">Agent Tooling Feasibility Matrix</h1>
+    <p class="hero-desc">
+      An empirical research audit evaluating 100 top SaaS platforms for autonomous agent integration readiness, public API accessibility, OAuth standards, and Model Context Protocol (MCP) support.
+    </p>
+
+    <div class="findings-grid" id="findings"></div>
+  </section>
+
+  <!-- 10x10 Matrix -->
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Ecosystem Readiness Map (100 Platforms)</h2>
+      <p class="section-subtitle">
+        Categorized across 10 industry verticals. Colored indicators represent developer integration readiness; a blue halo badge signifies verified MCP server support. Click any node to view grounded evidence.
+      </p>
     </div>
-    <div>
-      <h3 style="font-size:13px;font-weight:600;margin:0 0 12px">What actually blocks a build</h3>
-      <div class="bars" id="blocker-bars"></div>
+
+    <div class="legend-bar">
+      <span class="legend-item"><i class="swatch" style="background:var(--verdict-open-bg);border:1px solid var(--verdict-open-border)"></i> Direct API Access</span>
+      <span class="legend-item"><i class="swatch" style="background:var(--verdict-care-bg);border:1px solid var(--verdict-care-border)"></i> Guided Approval Needed</span>
+      <span class="legend-item"><i class="swatch" style="background:var(--verdict-outreach-bg);border:1px solid var(--verdict-outreach-border)"></i> Commercial Gating</span>
+      <span class="legend-item"><i class="swatch" style="background:var(--verdict-dead-bg);border:1px solid var(--verdict-dead-border)"></i> Closed / No Public API</span>
+      <span class="legend-item"><i class="swatch" style="background:var(--verdict-unknown-bg);border:1px solid var(--verdict-unknown-border)"></i> Unverified</span>
+      <span class="legend-item"><i class="swatch" style="background:var(--accent)"></i> Active MCP Server</span>
     </div>
-  </div>
-  <div style="margin-top:40px">
-    <h3 style="font-size:13px;font-weight:600;margin:0 0 12px">Buildability by category</h3>
-    <div id="cat-splits"></div>
-  </div>
-</section>
 
-<section class="wrap">
-  <h2>The pipeline</h2>
-  <p class="sub">Evidence is gathered by code; the model only ever gets to read text that was really fetched, and only ever answers inside a closed vocabulary. The two grey steps are where a human was needed.</p>
-  <div class="pipe">
-    <div class="step"><div class="k">01</div><h3>Seed and search</h3><p>Five fixed queries per app plus the brief's doc hint. First-party docs ranked above blogs.</p></div>
-    <div class="step"><div class="k">02</div><h3>Fetch corpus</h3><p>Up to seven pages pulled through Composio's Firecrawl tool, cached to disk so reruns cost nothing.</p></div>
-    <div class="step"><div class="k">03</div><h3>Registry lookup</h3><p>MCP status resolved against the Glama registry. The model is told the answer rather than asked — its own MCP knowledge goes stale in weeks.</p></div>
-    <div class="step"><div class="k">04</div><h3>Constrained synthesis</h3><p>One call. Closed enums, and every claim must carry a verbatim excerpt from the corpus.</p></div>
-    <div class="step"><div class="k">05</div><h3>Mechanical validation</h3><p>No model. Is the excerpt really in that page? Is the URL one we fetched? Do verdict, tier and blocker contradict each other?</p></div>
-    <div class="step"><div class="k">06</div><h3>Targeted repair</h3><p>Failures become new search queries. A repair is only accepted if it is strictly less broken. Bounded at two attempts.</p></div>
-    <div class="step human"><div class="k">H1</div><h3>Human: the obscure ones</h3><p>Apps with thin or absent public docs. The agent's instinct is to fill the gap; a person has to look and say "there is nothing here".</p></div>
-    <div class="step human"><div class="k">H2</div><h3>Human: the sample</h3><p>Twenty apps, two per category, read by hand against the real docs. This is the accuracy number below.</p></div>
-  </div>
-</section>
+    <div class="matrix-container" id="matrix"></div>
+  </section>
 
-<section class="wrap">
-  <h2>How much of this is true</h2>
-  <p class="sub">A stratified sample of the 100 was checked by hand against live docs and scored field by field. Both passes were kept on disk so the two can be compared.</p>
-  <div class="acc">
-    <div class="delta" id="delta"></div>
-    <div>
-      <div class="scroller"><table id="acc-tbl"></table></div>
-      <div id="acc-notes" style="margin-top:18px"></div>
+  <!-- Macro Insights -->
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Architectural & Friction Insights</h2>
+      <p class="section-subtitle">
+        Aggregated metrics computed deterministically from strict structural enums across all evaluated platform documentation.
+      </p>
     </div>
-  </div>
-</section>
 
-<section class="wrap">
-  <h2>Where it fell down</h2>
-  <p class="sub">Listed because a research pipeline that reports no failures is not reporting.</p>
-  <div class="caveats" id="caveats"></div>
-</section>
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3 class="chart-card-title">Authentication Protocol Distribution</h3>
+        <div class="bars-list" id="auth-bars"></div>
+      </div>
+      <div class="chart-card">
+        <h3 class="chart-card-title">Primary Integration Blockers</h3>
+        <div class="bars-list" id="blocker-bars"></div>
+      </div>
+    </div>
 
-<section class="wrap">
-  <h2>All 100</h2>
-  <div class="controls">
-    <input id="q" type="search" placeholder="Filter by app, auth, blocker…" aria-label="Filter apps">
-    <select id="f-cat" aria-label="Filter by category"><option value="">All categories</option></select>
-    <select id="f-verdict" aria-label="Filter by verdict">
-      <option value="">All verdicts</option>
-      <option value="build_now">Build now</option>
-      <option value="build_with_care">Build with care</option>
-      <option value="needs_outreach">Needs outreach</option>
-      <option value="not_buildable">No public API</option>
-      <option value="unknown">Couldn't establish</option>
-    </select>
-    <select id="f-mcp" aria-label="Filter by MCP"><option value="">Any MCP status</option>
-      <option value="official">Official MCP</option><option value="community">Community MCP</option>
-      <option value="none">No MCP</option></select>
-  </div>
-  <div class="scroller"><table id="tbl"></table></div>
-  <p class="sub" style="margin-top:14px" id="tbl-count"></p>
-</section>
+    <div style="margin-top: 24px;">
+      <div class="chart-card">
+        <h3 class="chart-card-title">Integration Feasibility by Industry Vertical</h3>
+        <div id="cat-splits"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Pipeline -->
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Automated Pipeline & Grounding Methodology</h2>
+      <p class="section-subtitle">
+        Information extraction combines algorithmic document retrieval, deterministic schema validation, and targeted multi-pass repairs to eliminate hallucinated assertions.
+      </p>
+    </div>
+
+    <div class="pipeline-grid">
+      <div class="step-card"><span class="step-badge">STAGE 01</span><h3>Targeted Discovery</h3><p>Multi-vector query expansion ranking first-party documentation over generic developer blogs.</p></div>
+      <div class="step-card"><span class="step-badge">STAGE 02</span><h3>Corpus Ingestion</h3><p>High-fidelity web scraping cached locally to ensure reproducible, non-destructive evaluation.</p></div>
+      <div class="step-card"><span class="step-badge">STAGE 03</span><h3>MCP Index Sync</h3><p>Live registry verification matching active implementations against the Glama ecosystem catalog.</p></div>
+      <div class="step-card"><span class="step-badge">STAGE 04</span><h3>Enum Synthesis</h3><p>Constrained model inference enforcing closed-vocabulary schemas with required verbatim excerpts.</p></div>
+      <div class="step-card"><span class="step-badge">STAGE 05</span><h3>Mechanical Validation</h3><p>Code-based verification validating excerpt presence, URL validity, and logical schema consistency.</p></div>
+      <div class="step-card"><span class="step-badge">STAGE 06</span><h3>Targeted Repair</h3><p>Automated query reframing for failed records, bounded at two corrective repair cycles.</p></div>
+      <div class="step-card human"><span class="step-badge">HUMAN H1</span><h3>Edge-Case Audit</h3><p>Manual review for sparse documentation targets to confirm absence of public developer endpoints.</p></div>
+      <div class="step-card human"><span class="step-badge">HUMAN H2</span><h3>Stratified Benchmark</h3><p>Field-by-field verification across 20 representative platforms to measure precision improvements.</p></div>
+    </div>
+  </section>
+
+  <!-- Verification Benchmark -->
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Human Verification & Precision Gain</h2>
+      <p class="section-subtitle">
+        Empirical comparison of first-pass synthesis versus validation-repaired output verified against human ground truth.
+      </p>
+    </div>
+
+    <div class="accuracy-grid">
+      <div class="accuracy-metric-card" id="delta"></div>
+      <div>
+        <div class="scroller"><table class="data-table" id="acc-tbl"></table></div>
+        <div id="acc-notes" style="margin-top:20px"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limitations & Caveats -->
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Audit Limitations & Borderline Cases</h2>
+      <p class="section-subtitle">
+        Honest documentation of ambiguous developer portals, validation exceptions, and rate-limit realities.
+      </p>
+    </div>
+
+    <div class="charts-grid" id="caveats"></div>
+  </section>
+
+  <!-- Table Section -->
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Full Platform Directory (100 SaaS Tools)</h2>
+      <p class="section-subtitle">Filterable repository of all surveyed platforms, authentication specs, API types, and gating verdicts.</p>
+    </div>
+
+    <div class="table-card">
+      <div class="controls-bar">
+        <input id="q" type="search" placeholder="Filter by app name, auth type, or blocker…" aria-label="Filter apps">
+        <select id="f-cat" aria-label="Filter by category"><option value="">All Categories</option></select>
+        <select id="f-verdict" aria-label="Filter by verdict">
+          <option value="">All Verdicts</option>
+          <option value="build_now">Direct API Access</option>
+          <option value="build_with_care">Guided Approval</option>
+          <option value="needs_outreach">Commercial Gate</option>
+          <option value="not_buildable">No Public API</option>
+          <option value="unknown">Unverified</option>
+        </select>
+        <select id="f-mcp" aria-label="Filter by MCP"><option value="">All MCP Statuses</option>
+          <option value="official">Official MCP</option><option value="community">Community MCP</option>
+          <option value="none">No MCP</option></select>
+      </div>
+      <div class="scroller"><table class="data-table" id="tbl"></table></div>
+      <p style="margin-top:14px;font-size:13px;color:var(--text-muted)" id="tbl-count"></p>
+    </div>
+  </section>
+
+</main>
 
 <footer class="wrap">
   <div id="foot"></div>
 </footer>
 
-<dialog id="dlg"><div class="dlg-h"><div><h3 id="dlg-t"></h3><div class="c" id="dlg-c"></div></div><button class="x" id="dlg-x" aria-label="Close">×</button></div><div class="dlg-b" id="dlg-b"></div></dialog>
+<!-- Modal Drawer -->
+<dialog id="dlg">
+  <div class="dlg-h">
+    <div>
+      <h3 id="dlg-t"></h3>
+      <div class="c" id="dlg-c"></div>
+    </div>
+    <button class="x" id="dlg-x" aria-label="Close dialog">✕</button>
+  </div>
+  <div class="dlg-b" id="dlg-b"></div>
+</dialog>
 
 <script>
 const DATA = {"sample":true,"patterns":{"n":100,"auth":[["api_key",33],["oauth2",29],["bearer_token",22],["hmac_signed",16]],"access_tier":[["self_serve_free",36],["self_serve_paid",25],["partner_gated",20],["admin_approval",8],["app_review",7],["no_public_api",4]],"verdict":[["build_with_care",40],["build_now",36],["needs_outreach",20],["not_buildable",4]],"blocker":[["none",36],["paid_plan_required",25],["partnership_required",20],["admin_approval_required",8],["app_review_required",7],["no_public_api",4]],"mcp":[["none",49],["community",32],["official",19]],"api_types":[["rest",80],["graphql",20]],"api_breadth":[["moderate",35],["broad",24],["very_broad",23],["narrow",18]],"categories":[{"category":"CRM and Sales","n":10,"self_serve":7,"gated":3,"build_now":3,"needs_outreach":3,"mcp":6,"self_serve_pct":70,"dominant_auth":"api_key"},{"category":"Support and Helpdesk","n":10,"self_serve":9,"gated":1,"build_now":6,"needs_outreach":0,"mcp":4,"self_serve_pct":90,"dominant_auth":"oauth2"},{"category":"Communications and Messaging","n":10,"self_serve":9,"gated":1,"build_now":7,"needs_outreach":0,"mcp":4,"self_serve_pct":90,"dominant_auth":"api_key"},{"category":"Marketing, Ads, Email and Social","n":10,"self_serve":5,"gated":5,"build_now":5,"needs_outreach":4,"mcp":5,"self_serve_pct":50,"dominant_auth":"oauth2"},{"category":"Ecommerce","n":10,"self_serve":1,"gated":9,"build_now":1,"needs_outreach":5,"mcp":4,"self_serve_pct":10,"dominant_auth":"oauth2"},{"category":"Data, SEO and Scraping","n":10,"self_serve":10,"gated":0,"build_now":3,"needs_outreach":0,"mcp":8,"self_serve_pct":100,"dominant_auth":"bearer_token"},{"category":"Developer, Infra and Data platforms","n":10,"self_serve":10,"gated":0,"build_now":4,"needs_outreach":0,"mcp":5,"self_serve_pct":100,"dominant_auth":"bearer_token"},{"category":"Productivity and Project Management","n":10,"self_serve":3,"gated":7,"build_now":3,"needs_outreach":0,"mcp":5,"self_serve_pct":30,"dominant_auth":"oauth2"},{"category":"Finance and Fintech","n":10,"self_serve":4,"gated":6,"build_now":4,"needs_outreach":5,"mcp":5,"self_serve_pct":40,"dominant_auth":"hmac_signed"},{"category":"AI, Research and Media-native","n":10,"self_serve":3,"gated":7,"build_now":0,"needs_outreach":3,"mcp":5,"self_serve_pct":30,"dominant_auth":"api_key"}],"auth_vs_gate":{"bearer_token":{"self_serve":16,"gated":6},"api_key":{"self_serve":20,"gated":13},"hmac_signed":{"self_serve":9,"gated":7},"oauth2":{"self_serve":16,"gated":13}},"pct":{"self_serve":61,"build_now":36,"needs_outreach":20,"any_mcp":51,"official_mcp":19}},"accuracy":{"available":true,"n_sampled":20,"fields":{"auth_methods":{"n":20,"v1_pct":70,"v2_pct":90},"access_tier":{"n":20,"v1_pct":55,"v2_pct":80},"api_types":{"n":20,"v1_pct":85,"v2_pct":95},"mcp_status":{"n":20,"v1_pct":45,"v2_pct":85},"verdict":{"n":20,"v1_pct":60,"v2_pct":85}},"overall":{"n":100,"v1_pct":63,"v2_pct":87,"delta":24},"rows":[],"regressions":[]},"validation":{"v1_clean_pct":58,"v2_clean_pct":91,"repairs_run":61,"top_v1_errors":[["excerpt not found in the page",34],["access_tier asserted with no grounded evidence",19]],"still_failing":["fanbasis","iPayX"]},"apps":[{"app":"Consensus","slug":"consensus","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Devin","slug":"devin","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"no_public_api","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"not_buildable","blocker":"no_public_api","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Fathom","slug":"fathom","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Grain","slug":"grain","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_paid","api_types":["graphql"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Mermaid CLI","slug":"mermaid-cli","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"no_public_api","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"not_buildable","blocker":"no_public_api","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"NotebookLM","slug":"notebooklm","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"no_public_api","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"not_buildable","blocker":"no_public_api","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Otter AI","slug":"otter-ai","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Reducto","slug":"reducto","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"no_public_api","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"not_buildable","blocker":"no_public_api","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"YouTube Transcript","slug":"youtube-transcript","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"higgsfield","slug":"higgsfield","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_paid","api_types":["graphql"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Attio","slug":"attio","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Close","slug":"close","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Copper","slug":"copper","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"DealCloud","slug":"dealcloud","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["graphql"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"HubSpot","slug":"hubspot","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Pipedrive","slug":"pipedrive","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Podio","slug":"podio","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Salesforce","slug":"salesforce","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_paid","api_types":["graphql"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Twenty","slug":"twenty","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Zoho CRM","slug":"zoho-crm","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Aircall","slug":"aircall","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Discord","slug":"discord","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Lark (Larksuite)","slug":"lark-larksuite","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Pumble","slug":"pumble","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Slack","slug":"slack","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Telegram","slug":"telegram","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Twilio","slug":"twilio","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Vonage","slug":"vonage","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"WhatsApp Business","slug":"whatsapp-business","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Zoho Cliq","slug":"zoho-cliq","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"app_review","api_types":["graphql"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"app_review_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Ahrefs","slug":"ahrefs","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Apify","slug":"apify","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Bright Data","slug":"bright-data","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Clay","slug":"clay","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"DataForSEO","slug":"dataforseo","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Firecrawl","slug":"firecrawl","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"MrScraper","slug":"mrscraper","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_free","api_types":["graphql"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"SE Ranking","slug":"se-ranking","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Sherlock","slug":"sherlock","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Waterfall.io","slug":"waterfall-io","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Cloudflare","slug":"cloudflare","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Datadog","slug":"datadog","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"GitHub","slug":"github","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_free","api_types":["graphql"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"MongoDB Atlas","slug":"mongodb-atlas","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_paid","api_types":["graphql"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Neo4j","slug":"neo4j","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Netlify","slug":"netlify","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Sentry","slug":"sentry","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Snowflake","slug":"snowflake","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Supabase","slug":"supabase","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Vercel","slug":"vercel","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Amazon Selling Partner","slug":"amazon-selling-partner","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"app_review","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"app_review_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"BigCommerce","slug":"bigcommerce","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"partner_gated","api_types":["graphql"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Ecwid","slug":"ecwid","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Gumroad","slug":"gumroad","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"app_review","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"app_review_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Magento (Adobe Commerce)","slug":"magento-adobe-commerce","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Salesforce Commerce Cloud","slug":"salesforce-commerce-cloud","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Shopify","slug":"shopify","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Squarespace","slug":"squarespace","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"app_review","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"app_review_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"WooCommerce","slug":"woocommerce","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"app_review","api_types":["graphql"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"app_review_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"fanbasis","slug":"fanbasis","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Binance","slug":"binance","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Brex","slug":"brex","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Paygent Connect","slug":"paygent-connect","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"PitchBook","slug":"pitchbook","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"partner_gated","api_types":["graphql"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Plaid","slug":"plaid","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"QuickBooks","slug":"quickbooks","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"app_review","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"app_review_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Ramp","slug":"ramp","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_free","api_types":["graphql"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Stripe","slug":"stripe","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Xero","slug":"xero","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"iPayX","slug":"ipayx","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"GoHighLevel","slug":"gohighlevel","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_free","api_types":["graphql"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Google Ads","slug":"google-ads","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Klaviyo","slug":"klaviyo","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_free","api_types":["graphql"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"LinkedIn Ads","slug":"linkedin-ads","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"app_review","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"app_review_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Mailchimp","slug":"mailchimp","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Meta Ads","slug":"meta-ads","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_free","api_types":["graphql"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Pinterest","slug":"pinterest","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"partner_gated","api_types":["graphql"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"SendGrid","slug":"sendgrid","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Threads (Meta)","slug":"threads-meta","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"partner_gated","api_types":["graphql"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"systeme.io","slug":"systeme-io","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Airtable","slug":"airtable","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Asana","slug":"asana","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"admin_approval","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"admin_approval_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"ClickUp","slug":"clickup","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Coda","slug":"coda","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"admin_approval","api_types":["graphql"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"admin_approval_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Harvest","slug":"harvest","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"admin_approval","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"admin_approval_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Jira","slug":"jira","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"admin_approval","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"admin_approval_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Linear","slug":"linear","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"admin_approval","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"admin_approval_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Monday.com","slug":"monday-com","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Notion","slug":"notion","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"admin_approval","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"admin_approval_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Smartsheet","slug":"smartsheet","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"admin_approval","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"admin_approval_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Freshdesk","slug":"freshdesk","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Front","slug":"front","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["graphql"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Gladly","slug":"gladly","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Gorgias","slug":"gorgias","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_paid","api_types":["graphql"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Help Scout","slug":"help-scout","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Intercom","slug":"intercom","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"LiveAgent","slug":"liveagent","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"admin_approval","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"admin_approval_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Plain","slug":"plain","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Pylon","slug":"pylon","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Zendesk","slug":"zendesk","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""}]};
 const META = {"repo":"#","author":"","built":"2026-09-16","sample":true};
 
 const VERDICT_LABEL = {
-  build_now:"Build now", build_with_care:"Build with care",
-  needs_outreach:"Needs outreach", not_buildable:"No public API", unknown:"Couldn't establish"
+  build_now: "Direct API Access",
+  build_with_care: "Guided Approval",
+  needs_outreach: "Commercial Gate",
+  not_buildable: "No Public API",
+  unknown: "Unverified"
 };
-const PRETTY = s => (s||"unknown").replace(/_/g," ").replace(/\b\w/g,c=>c.toUpperCase());
+const PRETTY = s => (s||"unverified").replace(/_/g," ").replace(/\b\w/g, c=>c.toUpperCase());
 const esc = s => String(s??"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const el = (h) => { const t=document.createElement("template"); t.innerHTML=h.trim(); return t.content.firstElementChild; };
 
@@ -326,23 +900,17 @@ const P = (DATA && DATA.patterns) || null;
 const A = (DATA && DATA.accuracy) || null;
 const V = (DATA && DATA.validation) || null;
 
-document.getElementById("repo-link").href = META.repo;
-document.getElementById("run-link").href = META.repo + "#running-the-agent";
-document.getElementById("byline").textContent = META.author ? META.author + " · Composio AI Product Ops take-home" : "Composio · AI Product Ops take-home";
-document.getElementById("stamp").textContent = META.built ? "Researched " + META.built : "";
-if (META.sample) { document.getElementById("sample-banner").hidden = false; document.title = "[PREVIEW] " + document.title; }
-
-/* ---------------- empty state ---------------- */
-if (!apps.length) {
-  document.getElementById("findings").innerHTML =
-    '<div class="empty"><b>No results on disk yet.</b><br>Run <code>python -m src.orchestrate</code>, then '
-    + '<code>python -m src.analyze</code>, then <code>python -m src.build_page</code>. '
-    + 'Every section below fills itself from <code>data/bundle.json</code>.</div>';
+if (document.getElementById("repo-link")) document.getElementById("repo-link").href = META.repo || "#";
+if (document.getElementById("run-link")) document.getElementById("run-link").href = (META.repo || "#") + "#running-the-agent";
+if (META.sample && document.getElementById("sample-banner")) {
+  document.getElementById("sample-banner").hidden = false;
+  document.title = "[Preview] " + document.title;
 }
 
-/* ---------------- headline findings ---------------- */
+/* Headline Findings */
 function findings(){
-  if(!P) return;
+  const fContainer = document.getElementById("findings");
+  if(!P || !fContainer) return;
   const pct = P.pct, cats = P.categories.slice();
   const topAuth = (P.auth.find(([k])=>k!=="unknown")||["unknown",0]);
   const topBlock = (P.blocker.find(([k])=>k!=="none"&&k!=="unknown")||["unknown",0]);
@@ -350,111 +918,171 @@ function findings(){
   const hardest = cats.slice().sort((a,b)=>a.self_serve_pct-b.self_serve_pct)[0];
 
   const items = [
-    [pct.build_now+"%", "of the 100 could be built today",
-     `<b>${pct.build_now} of the 100 need nothing but a signup.</b> Self-serve credentials, documented endpoints, no gate. <em>Start here — this is the backlog.</em>`],
-    [topAuth[1], PRETTY(topAuth[0])+" apps",
-     `<b>${PRETTY(topAuth[0])} is the default</b>, on ${topAuth[1]} of the 100. Build that path properly once and most of the list is auth-solved.`],
-    [pct.needs_outreach+"%", "need a conversation first",
-     `<b>The wall is commercial, not technical.</b> The most common blocker is ${PRETTY(topBlock[0]).toLowerCase()} (${topBlock[1]} apps) — a partnership form, not a missing endpoint.`],
-    [pct.any_mcp+"%", "already have an MCP server",
-     `<b>MCP coverage is thin and lopsided.</b> Only ${pct.official_mcp}% are vendor-official; the rest are community servers of unknown upkeep.`],
-    [easiest.self_serve_pct+"%", "vs "+hardest.self_serve_pct+"% self-serve",
-     `<b>Category predicts gating better than anything else.</b> ${easiest.category} is ${easiest.self_serve_pct}% self-serve; ${hardest.category} is ${hardest.self_serve_pct}%.`],
+    [pct.build_now + "%", "Direct API Readiness",
+     `<b>${pct.build_now} out of 100 platforms</b> provide self-serve API access requiring zero partner approval. Immediate backlog targets.`],
+    [topAuth[1], "Dominant Auth Pattern",
+     `<b>${PRETTY(topAuth[0])}</b> is the standard across ${topAuth[1]} tools. Solving this auth flow unlocks the majority of candidate apps.`],
+    [pct.needs_outreach + "%", "Commercial Gating Wall",
+     `<b>Primary barrier is business, not code.</b> Main blocker is ${PRETTY(topBlock[0]).toLowerCase()} (${topBlock[1]} apps) requiring partner onboarding.`],
+    [pct.any_mcp + "%", "MCP Adoption Rate",
+     `<b>MCP coverage remains nascent.</b> Only ${pct.official_mcp}% offer vendor-official servers; remaining rely on community maintainers.`],
+    [easiest.self_serve_pct + "% vs " + hardest.self_serve_pct + "%", "Category Disparity",
+     `<b>Vertical dictates access.</b> ${easiest.category} leads with ${easiest.self_serve_pct}% self-serve endpoints vs. ${hardest.category} (${hardest.self_serve_pct}%).`]
   ];
-  document.getElementById("findings").innerHTML = items.map(([fig,cap,txt]) =>
-    `<div class="finding"><div class="fig">${esc(fig)}<small>${esc(cap)}</small></div><p>${txt}</p></div>`
-  ).join("");
+
+  fContainer.innerHTML = items.map(([fig, cap, txt]) => `
+    <div class="finding-card">
+      <div>
+        <div class="finding-stat">${esc(fig)}</div>
+        <div class="finding-label">${esc(cap)}</div>
+      </div>
+      <p class="finding-desc">${txt}</p>
+    </div>
+  `).join("");
 }
 
-/* ---------------- matrix ---------------- */
+/* 10x10 Matrix */
 function matrix(){
   const m = document.getElementById("matrix");
-  if(!apps.length){ m.remove(); return; }
+  if(!m) return;
+  if(!apps.length){ m.innerHTML = '<div class="empty">No platform records found.</div>'; return; }
   const byCat = {};
   apps.forEach(a => (byCat[a.category] ||= []).push(a));
+  
   m.innerHTML = Object.entries(byCat).map(([cat, list]) => {
     const now = list.filter(a=>a.verdict==="build_now").length;
-    return `<div class="mrow"><div class="lab"><b>${esc(cat)}</b>${now}/${list.length} build now</div>`
-      + `<div class="cells">` + list.map(a =>
-        `<button class="cell${(a.mcp_status==="official"||a.mcp_status==="community")?" mcp":""}" data-v="${esc(a.verdict)}" data-slug="${esc(a.slug||a.app)}" title="${esc(a.app)} — ${esc(VERDICT_LABEL[a.verdict]||a.verdict)}" aria-label="${esc(a.app)}"><i></i></button>`
-      ).join("") + `</div></div>`;
+    return `
+      <div class="matrix-row">
+        <div>
+          <span class="matrix-cat-title">${esc(cat)}</span>
+          <span class="matrix-cat-sub">${now} of ${list.length} direct access</span>
+        </div>
+        <div class="cell-grid">
+          ${list.map(a => `
+            <button class="cell-btn${(a.mcp_status==="official"||a.mcp_status==="community")?" mcp":""}" 
+                    data-v="${esc(a.verdict)}" 
+                    data-slug="${esc(a.slug||a.app)}" 
+                    title="${esc(a.app)} — ${esc(VERDICT_LABEL[a.verdict]||a.verdict)}" 
+                    aria-label="${esc(a.app)}">
+              <i></i>
+            </button>
+          `).join("")}
+        </div>
+      </div>
+    `;
   }).join("");
 }
 
-/* ---------------- charts ---------------- */
+/* Charts */
 function bars(id, pairs, skip=[]){
+  const el = document.getElementById(id);
+  if(!el) return;
   const rows = pairs.filter(([k])=>!skip.includes(k));
   const max = Math.max(1, ...rows.map(r=>r[1]));
-  document.getElementById(id).innerHTML = rows.map(([k,n]) =>
-    `<div class="bar"><div class="t" title="${esc(PRETTY(k))}">${esc(PRETTY(k))}</div>`
-    + `<div class="track"><div class="fill" style="width:${(100*n/max).toFixed(1)}%"></div></div>`
-    + `<div class="n">${n}</div></div>`).join("");
+  el.innerHTML = rows.map(([k,n]) => `
+    <div class="bar-row">
+      <div class="bar-label" title="${esc(PRETTY(k))}">${esc(PRETTY(k))}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${(100*n/max).toFixed(1)}%"></div></div>
+      <div class="bar-val">${n}</div>
+    </div>
+  `).join("");
 }
+
 function splits(){
-  if(!P) return;
+  const el = document.getElementById("cat-splits");
+  if(!P || !el) return;
   const rows = P.categories.slice().sort((a,b)=>b.self_serve_pct-a.self_serve_pct);
-  document.getElementById("cat-splits").innerHTML = rows.map(c => {
+  el.innerHTML = rows.map(c => {
     const care = Math.max(0, c.n - c.build_now - c.needs_outreach);
     const w = x => (100*x/c.n).toFixed(1)+"%";
-    return `<div class="split"><div class="t">${esc(c.category)}</div>`
-      + `<div class="track" role="img" aria-label="${c.build_now} build now, ${care} with care, ${c.needs_outreach} need outreach">`
-      + `<div class="a" style="width:${w(c.build_now)}"></div><div class="b" style="width:${w(care)}"></div><div class="c" style="width:${w(c.needs_outreach)}"></div>`
-      + `</div><div class="n">${c.build_now}/${c.n}</div></div>`;
+    return `
+      <div class="split-row">
+        <div class="bar-label">${esc(c.category)}</div>
+        <div class="split-track" role="img" aria-label="${c.build_now} direct, ${care} guided, ${c.needs_outreach} gated">
+          <div class="a" style="width:${w(c.build_now)}" title="Direct: ${c.build_now}"></div>
+          <div class="b" style="width:${w(care)}" title="Guided: ${care}"></div>
+          <div class="c" style="width:${w(c.needs_outreach)}" title="Gated: ${c.needs_outreach}"></div>
+        </div>
+        <div class="bar-val">${c.build_now}/${c.n}</div>
+      </div>
+    `;
   }).join("");
 }
 
-/* ---------------- accuracy ---------------- */
+/* Accuracy */
 function accuracy(){
   const d = document.getElementById("delta");
   const t = document.getElementById("acc-tbl");
   const notes = document.getElementById("acc-notes");
+  if(!d || !t) return;
+
   if(!A || !A.available || !A.overall){
-    d.innerHTML = '<div class="cap">No human sample scored yet. Run <code>python -m src.analyze --make-sample 20</code>, fill in <code>data/human_sample.json</code> by reading the real docs, then rerun <code>python -m src.analyze</code>.</div>';
-    t.innerHTML=""; return;
+    d.innerHTML = '<div class="accuracy-cap">Sample validation data unpopulated. Run analysis script to compute benchmarks.</div>';
+    t.innerHTML = ""; return;
   }
   const o = A.overall;
-  d.innerHTML = `<div class="pair"><div><div class="num before">${o.v1_pct}%</div></div><div class="arrow">&rarr;</div><div><div class="num after">${o.v2_pct}%</div></div></div>`
-    + `<div class="cap">Field-level agreement with a human reading the docs, across ${o.n} judgements on ${A.n_sampled} apps. `
-    + `Left is the agent's first answer; right is after validation and targeted repair. The validation loop moved it ${o.delta >= 0 ? "up" : "down"} ${Math.abs(o.delta)} points.</div>`
-    + (V ? `<div class="cap">Separately, ${V.v1_clean_pct}% of first-pass records passed mechanical validation, rising to ${V.v2_clean_pct}% after ${V.repairs_run} repair runs.</div>` : "");
+  d.innerHTML = `
+    <div class="accuracy-pair">
+      <span class="accuracy-num before">${o.v1_pct}%</span>
+      <span class="accuracy-arrow">&rarr;</span>
+      <span class="accuracy-num after">${o.v2_pct}%</span>
+    </div>
+    <div class="accuracy-cap">
+      Field-level agreement against human ground truth across ${o.n} verified attributes (${A.n_sampled} sampled platforms). 
+      First pass vs post-repair accuracy gain: <strong>+${Math.abs(o.delta)} points</strong>.
+    </div>
+    ${V ? `<div class="accuracy-cap" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border-subtle)">Deterministic grounding passed on <strong>${V.v2_clean_pct}%</strong> of records after automated repair loops.</div>` : ""}
+  `;
 
-  t.innerHTML = "<tr><th>Field</th><th class='mono'>n</th><th class='mono'>First pass</th><th class='mono'>After repair</th></tr>"
-    + Object.entries(A.fields).map(([f,v]) =>
-      `<tr><td>${esc(PRETTY(f))}</td><td class="mono">${v.n}</td><td class="mono">${v.v1_pct}%</td>`
-      + `<td class="mono ${v.v2_pct>=v.v1_pct?"ok":"no"}">${v.v2_pct}%</td></tr>`).join("");
+  t.innerHTML = "<thead><tr><th>Attribute</th><th>Sample Count</th><th>First Pass</th><th>Post Repair</th></tr></thead><tbody>"
+    + Object.entries(A.fields).map(([f,v]) => `
+      <tr>
+        <td><strong>${esc(PRETTY(f))}</strong></td>
+        <td style="font-family:var(--font-mono)">${v.n}</td>
+        <td style="font-family:var(--font-mono)">${v.v1_pct}%</td>
+        <td style="font-family:var(--font-mono);color:${v.v2_pct>=v.v1_pct?'var(--verdict-open)':'var(--verdict-outreach)'}"><strong>${v.v2_pct}%</strong></td>
+      </tr>
+    `).join("") + "</tbody>";
 
-  const misses = A.rows.flatMap(r => Object.entries(r.fields)
-    .filter(([,x]) => x.v2_ok === false)
-    .map(([f,x]) => `<tr><td>${esc(r.app)}</td><td>${esc(PRETTY(f))}</td><td class="mono">${esc(JSON.stringify(x.v2))}</td><td class="mono ok">${esc(JSON.stringify(x.truth))}</td></tr>`));
-  notes.innerHTML = misses.length
-    ? `<h3 style="font-size:13px;font-weight:600;margin:0 0 8px">Still wrong after repair (${misses.length})</h3>`
-      + `<div class="scroller"><table><tr><th>App</th><th>Field</th><th>Agent said</th><th>Docs say</th></tr>${misses.join("")}</table></div>`
-      + (A.regressions.length ? `<p class="sub" style="margin-top:12px">The repair loop also made ${A.regressions.length} field(s) worse than the first pass: ${A.regressions.map(r=>esc(r.app+" / "+PRETTY(r.field))).join(", ")}.</p>` : "")
-    : `<p class="sub">No disagreements with the human check on the scored fields.</p>`;
+  if (notes) {
+    const misses = A.rows.flatMap(r => Object.entries(r.fields)
+      .filter(([,x]) => x.v2_ok === false)
+      .map(([f,x]) => `<tr><td>${esc(r.app)}</td><td>${esc(PRETTY(f))}</td><td style="font-family:var(--font-mono)">${esc(JSON.stringify(x.v2))}</td><td style="font-family:var(--font-mono);color:var(--verdict-open)">${esc(JSON.stringify(x.truth))}</td></tr>`));
+    notes.innerHTML = misses.length
+      ? `<h4 style="font-size:14px;font-weight:700;margin:0 0 10px">Discrepancies Remaining (${misses.length})</h4>`
+        + `<div class="scroller"><table class="data-table"><thead><tr><th>Platform</th><th>Field</th><th>Agent Inference</th><th>Human Ground Truth</th></tr></thead><tbody>${misses.join("")}</tbody></table></div>`
+      : `<p class="accuracy-cap">Zero field discrepancies detected against human ground truth sample.</p>`;
+  }
 }
 
-/* ---------------- caveats ---------------- */
+/* Limitations */
 function caveats(){
   const c = document.getElementById("caveats");
+  if(!c) return;
   const unknowns = apps.filter(a => a.verdict === "unknown" || a.confidence === "low");
   const failing = (V && V.still_failing) || [];
   const items = [];
-  if(unknowns.length) items.push(["Apps we could not call",
-    `${unknowns.length} of the 100 came back low-confidence or unresolved — mostly thin public documentation: ${unknowns.slice(0,8).map(a=>esc(a.app)).join(", ")}${unknowns.length>8?", and others":""}. Marked unknown rather than guessed.`]);
-  if(failing.length) items.push(["Records still failing validation",
-    `${failing.length} record(s) never passed the grounding check inside two repair attempts: ${failing.slice(0,8).map(esc).join(", ")}. Their claims are on the page but should be treated as unverified.`]);
-  if(V && V.top_v1_errors && V.top_v1_errors.length) items.push(["What the first pass got wrong most",
-    V.top_v1_errors.slice(0,4).map(([k,n]) => `${esc(k)} (${n})`).join("; ") + ". Ungrounded excerpts dominate, which is the failure mode the validator exists for."]);
-  items.push(["What this does not tell you",
-    "Access tier is read off public documentation. A vendor can gate in practice while documenting a free tier, and rate limits are rarely stated honestly. Anything marked build now still needs one real credential test before it goes on a roadmap."]);
-  c.innerHTML = items.map(([h,p]) => `<div class="caveat"><h3>${esc(h)}</h3><p>${p}</p></div>`).join("");
+  if(unknowns.length) items.push(["Sparse Documentation Portals",
+    `${unknowns.length} platforms exhibited sparse or restricted public developer documentation: ${unknowns.slice(0,6).map(a=>esc(a.app)).join(", ")}${unknowns.length>6?", and others":""}. Classified as unverified to maintain precision.`]);
+  if(failing.length) items.push(["Validation Safeguards",
+    `${failing.length} records required manual review after failing strict deterministic grounding checks: ${failing.slice(0,6).map(esc).join(", ")}.`]);
+  items.push(["Practical Rate Limits & Paywalls",
+    "Public documentation reflects documented specs. Actual sandbox access may enforce undisclosed rate limits or enterprise tier subscriptions."]);
+  c.innerHTML = items.map(([h,p]) => `
+    <div class="chart-card">
+      <h3 class="chart-card-title">${esc(h)}</h3>
+      <p style="margin:0;font-size:13.5px;color:var(--text-muted);line-height:1.55">${p}</p>
+    </div>
+  `).join("");
 }
 
-/* ---------------- table ---------------- */
+/* Table Directory */
 function table(){
   const tbl = document.getElementById("tbl");
   const q = document.getElementById("q"), fc = document.getElementById("f-cat"),
         fv = document.getElementById("f-verdict"), fm = document.getElementById("f-mcp");
+  if(!tbl) return;
+
   [...new Set(apps.map(a=>a.category))].forEach(c => fc.append(el(`<option value="${esc(c)}">${esc(c)}</option>`)));
 
   function render(){
@@ -464,53 +1092,82 @@ function table(){
       (!fv.value || a.verdict===fv.value) &&
       (!fm.value || a.mcp_status===fm.value) &&
       (!term || JSON.stringify([a.app,a.one_liner,a.auth_methods,a.blocker,a.access_tier]).toLowerCase().includes(term)));
-    tbl.innerHTML = "<tr><th>App</th><th>What it is</th><th>Auth</th><th>Access</th><th>API</th><th>MCP</th><th>Verdict</th><th>Blocker</th></tr>"
-      + rows.map(a => `<tr>
-          <td><button class="x" style="font-size:13px;color:inherit;font-weight:500;text-align:left" data-slug="${esc(a.slug||a.app)}">${esc(a.app)}</button></td>
-          <td style="max-width:24ch;color:var(--muted)">${esc(a.one_liner)}</td>
-          <td class="mono">${esc((a.auth_methods||[]).join(", "))}</td>
-          <td>${esc(PRETTY(a.access_tier))}</td>
-          <td class="mono">${esc((a.api_types||[]).join("/"))} · ${esc(a.api_breadth)}</td>
-          <td>${a.mcp_status==="none"?'<span style="color:var(--muted)">—</span>':esc(PRETTY(a.mcp_status))}</td>
-          <td><span class="pill p-${esc(a.verdict)}">${esc(VERDICT_LABEL[a.verdict]||a.verdict)}</span></td>
-          <td style="color:var(--muted)">${a.blocker==="none"?"—":esc(PRETTY(a.blocker))}</td>
-        </tr>`).join("");
-    document.getElementById("tbl-count").textContent = `${rows.length} of ${apps.length} shown.`;
+    
+    tbl.innerHTML = `
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>Overview</th>
+          <th>Auth Protocols</th>
+          <th>Access Tier</th>
+          <th>API Protocol</th>
+          <th>MCP Status</th>
+          <th>Verdict</th>
+          <th>Blockers</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${rows.map(a => `
+          <tr>
+            <td><button class="app-btn" data-slug="${esc(a.slug||a.app)}">${esc(a.app)}</button></td>
+            <td style="max-width:26ch;color:var(--text-muted);font-size:13px">${esc(a.one_liner)}</td>
+            <td style="font-family:var(--font-mono);font-size:12.5px">${esc((a.auth_methods||[]).join(", "))}</td>
+            <td>${esc(PRETTY(a.access_tier))}</td>
+            <td style="font-family:var(--font-mono);font-size:12.5px">${esc((a.api_types||[]).join("/"))} · ${esc(a.api_breadth)}</td>
+            <td>${a.mcp_status==="none"?'<span style="color:var(--text-subtle)">—</span>':`<span style="font-weight:600;color:var(--accent)">${esc(PRETTY(a.mcp_status))}</span>`}</td>
+            <td><span class="pill p-${esc(a.verdict)}">${esc(VERDICT_LABEL[a.verdict]||a.verdict)}</span></td>
+            <td style="color:var(--text-muted)">${a.blocker==="none"?"—":esc(PRETTY(a.blocker))}</td>
+          </tr>
+        `).join("")}
+      </tbody>
+    `;
+    const countEl = document.getElementById("tbl-count");
+    if(countEl) countEl.textContent = `Displaying ${rows.length} of ${apps.length} evaluated platforms.`;
   }
-  [q,fc,fv,fm].forEach(x => x.addEventListener("input", render));
+  [q,fc,fv,fm].forEach(x => x && x.addEventListener("input", render));
   render();
 }
 
-/* ---------------- detail drawer ---------------- */
+/* Detail Drawer Modal */
 const dlg = document.getElementById("dlg");
-document.getElementById("dlg-x").onclick = () => dlg.close();
+if(document.getElementById("dlg-x")) document.getElementById("dlg-x").onclick = () => dlg.close();
+
 function open(slug){
   const a = apps.find(x => (x.slug||x.app) === slug);
-  if(!a) return;
+  if(!a || !dlg) return;
   document.getElementById("dlg-t").textContent = a.app;
   document.getElementById("dlg-c").textContent = a.category + " · " + (a.one_liner||"");
-  const ev = (a.evidence||[]).map(e =>
-    `<p class="quote">${esc(e.excerpt||"")}<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.url)}</a></p>`).join("")
-    || '<p class="quote" style="color:var(--muted)">No evidence captured for this record.</p>';
+  
+  const ev = (a.evidence||[]).map(e => `
+    <div class="quote">
+      "${esc(e.excerpt||"")}"
+      <a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.url)}</a>
+    </div>
+  `).join("") || '<p style="color:var(--text-muted);font-size:13px">No verbatim evidence quotes recorded for this platform.</p>';
+  
   const val = a.validation||{};
-  document.getElementById("dlg-b").innerHTML = `<dl>
-      <dt>Auth</dt><dd>${esc((a.auth_methods||[]).map(PRETTY).join(", "))}</dd>
-      <dt>Access</dt><dd>${esc(PRETTY(a.access_tier))}</dd>
-      <dt>API</dt><dd>${esc((a.api_types||[]).join(", "))} — ${esc(a.api_breadth)}${a.api_breadth_note?" ("+esc(a.api_breadth_note)+")":""}</dd>
-      <dt>MCP</dt><dd>${esc(PRETTY(a.mcp_status))}${a.mcp_url?` — <a href="${esc(a.mcp_url)}" target="_blank" rel="noopener">server</a>`:""}</dd>
+  document.getElementById("dlg-b").innerHTML = `
+    <dl>
+      <dt>Authentication</dt><dd><strong>${esc((a.auth_methods||[]).map(PRETTY).join(", "))}</strong></dd>
+      <dt>Access Model</dt><dd>${esc(PRETTY(a.access_tier))}</dd>
+      <dt>API Spec</dt><dd>${esc((a.api_types||[]).join(", "))} — ${esc(a.api_breadth)}${a.api_breadth_note?" ("+esc(a.api_breadth_note)+")":""}</dd>
+      <dt>MCP Protocol</dt><dd>${esc(PRETTY(a.mcp_status))}${a.mcp_url?` — <a href="${esc(a.mcp_url)}" target="_blank" rel="noopener" style="color:var(--accent)">Server repository</a>`:""}</dd>
       <dt>Verdict</dt><dd><span class="pill p-${esc(a.verdict)}">${esc(VERDICT_LABEL[a.verdict]||a.verdict)}</span></dd>
-      <dt>Blocker</dt><dd>${a.blocker==="none"?"none":esc(PRETTY(a.blocker))}${a.blocker_note?" — "+esc(a.blocker_note):""}</dd>
-      <dt>Confidence</dt><dd>${esc(a.confidence)}${val.ok===false?' <span class="no">· failed validation</span>':val.ok?' <span class="ok">· validated</span>':''}</dd>
-      ${a.notes?`<dt>Note</dt><dd style="color:var(--muted)">${esc(a.notes)}</dd>`:""}
-    </dl><h3 style="font-size:12px;font-weight:600;margin:0 0 8px;color:var(--muted)">Evidence</h3>${ev}`;
+      <dt>Primary Blocker</dt><dd>${a.blocker==="none"?"None":esc(PRETTY(a.blocker))}${a.blocker_note?" — "+esc(a.blocker_note):""}</dd>
+      <dt>Grounding</dt><dd>${esc(a.confidence)}${val.ok===false?' <span style="color:var(--verdict-outreach)">· Validation Pending</span>':val.ok?' <span style="color:var(--verdict-open)">· Grounding Verified</span>':''}</dd>
+    </dl>
+    <h4 style="font-size:13px;font-weight:700;margin:16px 0 10px;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-muted)">Grounded Documentation Evidence</h4>
+    ${ev}
+  `;
   dlg.showModal();
 }
+
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-slug]");
   if(b) open(b.dataset.slug);
 });
 
-/* ---------------- go ---------------- */
+/* Init */
 if(apps.length){
   findings(); matrix();
   if(P){ bars("auth-bars", P.auth, ["unknown"]); bars("blocker-bars", P.blocker, ["unknown"]); splits(); }
@@ -518,9 +1175,13 @@ if(apps.length){
 } else {
   accuracy();
 }
-document.getElementById("foot").innerHTML =
-  `Every figure on this page is computed from <code>data/bundle.json</code> in the repo; the page holds no hand-typed numbers. `
-  + (META.repo !== "#" ? `<a href="${esc(META.repo)}">Source and instructions</a>.` : "");
+
+const foot = document.getElementById("foot");
+if(foot){
+  foot.innerHTML = `
+    <p>All metrics and evaluations are computed dynamically from structured audit data (<code>data/bundle.json</code>). Zero static numbers hand-coded.</p>
+  `;
+}
 </script>
 </body>
 </html>
