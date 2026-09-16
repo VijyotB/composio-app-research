@@ -11,50 +11,51 @@
 :root {
   --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+  --wrap: 1240px;
   
+  /* Light Theme (Default) */
   --bg-page: #f8fafc;
   --bg-card: #ffffff;
   --bg-panel: #f1f5f9;
+  --bg-nav: rgba(255, 255, 255, 0.94);
   --bg-subtle: #e2e8f0;
   
-  --border: #e2e8f0;
-  --border-subtle: #f1f5f9;
-  --border-hover: #cbd5e1;
+  --border: #cbd5e1;
+  --border-subtle: #e2e8f0;
+  --border-hover: #94a3b8;
   
   --text-primary: #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
-  --text-subtle: #94a3b8;
+  --text-secondary: #1e293b;
+  --text-muted: #475569;
+  --text-subtle: #64748b;
   
   --accent: #4f46e5;
   --accent-light: #e0e7ff;
-  --accent-glow: rgba(79, 70, 229, 0.12);
+  --accent-glow: rgba(79, 70, 229, 0.18);
   
-  --verdict-open: #059669;
-  --verdict-open-bg: #ecfdf5;
-  --verdict-open-border: #a7f3d0;
+  --verdict-open: #047857;
+  --verdict-open-bg: #d1fae5;
+  --verdict-open-border: #6ee7b7;
   
-  --verdict-care: #d97706;
-  --verdict-care-bg: #fffbeb;
-  --verdict-care-border: #fde68a;
+  --verdict-care: #b45309;
+  --verdict-care-bg: #fef3c7;
+  --verdict-care-border: #fcd34d;
   
-  --verdict-outreach: #e11d48;
-  --verdict-outreach-bg: #fff1f2;
-  --verdict-outreach-border: #fecdd3;
+  --verdict-outreach: #be123c;
+  --verdict-outreach-bg: #ffe4e6;
+  --verdict-outreach-border: #fda4af;
   
-  --verdict-dead: #475569;
-  --verdict-dead-bg: #f8fafc;
-  --verdict-dead-border: #e2e8f0;
+  --verdict-dead: #334155;
+  --verdict-dead-bg: #e2e8f0;
+  --verdict-dead-border: #cbd5e1;
   
-  --verdict-unknown: #71717a;
-  --verdict-unknown-bg: #f4f4f5;
-  --verdict-unknown-border: #e4e4e7;
+  --verdict-unknown: #4b5563;
+  --verdict-unknown-bg: #f3f4f6;
+  --verdict-unknown-border: #d1d5db;
   
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
-  --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
-  
-  --wrap: 1240px;
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 14px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 12px 28px -4px rgba(0, 0, 0, 0.14);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -62,44 +63,45 @@
     --bg-page: #0b0f17;
     --bg-card: #131924;
     --bg-panel: #1b2434;
+    --bg-nav: rgba(19, 25, 36, 0.94);
     --bg-subtle: #273448;
     
-    --border: #232d3f;
-    --border-subtle: #192130;
-    --border-hover: #34445c;
+    --border: #2b384e;
+    --border-subtle: #1e2838;
+    --border-hover: #415370;
     
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
-    --text-subtle: #64748b;
+    --text-primary: #ffffff;
+    --text-secondary: #e2e8f0;
+    --text-muted: #cbd5e1;
+    --text-subtle: #94a3b8;
     
     --accent: #6366f1;
-    --accent-light: #1e1b4b;
-    --accent-glow: rgba(99, 102, 241, 0.2);
+    --accent-light: #25235c;
+    --accent-glow: rgba(99, 102, 241, 0.35);
     
-    --verdict-open: #10b981;
+    --verdict-open: #34d399;
     --verdict-open-bg: #064e3b;
-    --verdict-open-border: #047857;
+    --verdict-open-border: #059669;
     
-    --verdict-care: #f59e0b;
+    --verdict-care: #fbbf24;
     --verdict-care-bg: #78350f;
-    --verdict-care-border: #b45309;
+    --verdict-care-border: #d97706;
     
-    --verdict-outreach: #f43f5e;
+    --verdict-outreach: #fb7185;
     --verdict-outreach-bg: #881337;
-    --verdict-outreach-border: #be123c;
+    --verdict-outreach-border: #e11d48;
     
-    --verdict-dead: #94a3b8;
+    --verdict-dead: #cbd5e1;
     --verdict-dead-bg: #1e293b;
-    --verdict-dead-border: #334155;
+    --verdict-dead-border: #475569;
     
-    --verdict-unknown: #a1a1aa;
+    --verdict-unknown: #e4e4e7;
     --verdict-unknown-bg: #27272a;
-    --verdict-unknown-border: #3f3f46;
-    
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 16px 32px -4px rgba(0, 0, 0, 0.6);
+    --verdict-unknown-border: #52525b;
+
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 16px -2px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 16px 36px -4px rgba(0, 0, 0, 0.7);
   }
 }
 
@@ -107,32 +109,66 @@
   --bg-page: #0b0f17;
   --bg-card: #131924;
   --bg-panel: #1b2434;
+  --bg-nav: rgba(19, 25, 36, 0.94);
   --bg-subtle: #273448;
-  --border: #232d3f;
-  --border-subtle: #192130;
-  --border-hover: #34445c;
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --text-subtle: #64748b;
+  --border: #2b384e;
+  --border-subtle: #1e2838;
+  --border-hover: #415370;
+  --text-primary: #ffffff;
+  --text-secondary: #e2e8f0;
+  --text-muted: #cbd5e1;
+  --text-subtle: #94a3b8;
   --accent: #6366f1;
-  --accent-light: #1e1b4b;
-  --accent-glow: rgba(99, 102, 241, 0.2);
-  --verdict-open: #10b981;
+  --accent-light: #25235c;
+  --accent-glow: rgba(99, 102, 241, 0.35);
+  --verdict-open: #34d399;
   --verdict-open-bg: #064e3b;
-  --verdict-open-border: #047857;
-  --verdict-care: #f59e0b;
+  --verdict-open-border: #059669;
+  --verdict-care: #fbbf24;
   --verdict-care-bg: #78350f;
-  --verdict-care-border: #b45309;
-  --verdict-outreach: #f43f5e;
+  --verdict-care-border: #d97706;
+  --verdict-outreach: #fb7185;
   --verdict-outreach-bg: #881337;
-  --verdict-outreach-border: #be123c;
-  --verdict-dead: #94a3b8;
+  --verdict-outreach-border: #e11d48;
+  --verdict-dead: #cbd5e1;
   --verdict-dead-bg: #1e293b;
-  --verdict-dead-border: #334155;
-  --verdict-unknown: #a1a1aa;
+  --verdict-dead-border: #475569;
+  --verdict-unknown: #e4e4e7;
   --verdict-unknown-bg: #27272a;
-  --verdict-unknown-border: #3f3f46;
+  --verdict-unknown-border: #52525b;
+}
+
+:root[data-theme="light"] {
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-panel: #f1f5f9;
+  --bg-nav: rgba(255, 255, 255, 0.94);
+  --bg-subtle: #e2e8f0;
+  --border: #cbd5e1;
+  --border-subtle: #e2e8f0;
+  --border-hover: #94a3b8;
+  --text-primary: #0f172a;
+  --text-secondary: #1e293b;
+  --text-muted: #475569;
+  --text-subtle: #64748b;
+  --accent: #4f46e5;
+  --accent-light: #e0e7ff;
+  --accent-glow: rgba(79, 70, 229, 0.18);
+  --verdict-open: #047857;
+  --verdict-open-bg: #d1fae5;
+  --verdict-open-border: #6ee7b7;
+  --verdict-care: #b45309;
+  --verdict-care-bg: #fef3c7;
+  --verdict-care-border: #fcd34d;
+  --verdict-outreach: #be123c;
+  --verdict-outreach-bg: #ffe4e6;
+  --verdict-outreach-border: #fda4af;
+  --verdict-dead: #334155;
+  --verdict-dead-bg: #e2e8f0;
+  --verdict-dead-border: #cbd5e1;
+  --verdict-unknown: #4b5563;
+  --verdict-unknown-bg: #f3f4f6;
+  --verdict-unknown-border: #d1d5db;
 }
 
 * { box-sizing: border-box; }
@@ -155,14 +191,11 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(19, 25, 36, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--bg-nav);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
   padding: 14px 0;
-}
-:root:not([data-theme="dark"]) .nav-header {
-  background: rgba(255, 255, 255, 0.88);
 }
 .nav-row {
   display: flex;
@@ -176,81 +209,100 @@ body {
   gap: 10px;
   text-decoration: none;
   color: var(--text-primary);
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: 800;
+  font-size: 17px;
   letter-spacing: -0.01em;
 }
 .brand-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
   background: linear-gradient(135deg, var(--accent), #818cf8);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #ffffff;
   font-weight: 800;
-  font-size: 14px;
-  box-shadow: 0 2px 8px var(--accent-glow);
+  font-size: 15px;
+  box-shadow: 0 2px 10px var(--accent-glow);
 }
 .nav-meta {
   display: flex;
   align-items: center;
   gap: 16px;
-  font-size: 13px;
+  font-size: 13.5px;
   color: var(--text-muted);
 }
 .nav-meta a {
-  color: var(--text-secondary);
+  color: var(--text-primary);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   transition: color 0.15s;
 }
 .nav-meta a:hover { color: var(--accent); }
+
 .status-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 3px 10px;
+  gap: 8px;
+  padding: 5px 14px;
   border-radius: 9999px;
   background: var(--bg-panel);
   border: 1px solid var(--border);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
 }
 .status-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: #10b981;
-  box-shadow: 0 0 8px #10b981;
+  box-shadow: 0 0 10px #10b981;
+}
+
+.theme-toggle-btn {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.theme-toggle-btn:hover {
+  background: var(--bg-subtle);
+  border-color: var(--border-hover);
 }
 
 /* Sample Banner */
 #sample-banner {
-  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  background: linear-gradient(90deg, #2563eb, #4f46e5);
   color: #ffffff;
-  padding: 10px 24px;
-  font-size: 13px;
-  font-weight: 600;
+  padding: 11px 24px;
+  font-size: 13.5px;
+  font-weight: 700;
   text-align: center;
   box-shadow: var(--shadow-sm);
+  letter-spacing: 0.01em;
 }
 
 /* Sections */
 section {
-  padding: 56px 0;
+  padding: 52px 0;
   border-top: 1px solid var(--border-subtle);
 }
 section:first-of-type { border-top: none; }
 
 .section-header {
-  margin-bottom: 32px;
+  margin-bottom: 30px;
 }
 .section-title {
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 800;
   letter-spacing: -0.02em;
   margin: 0 0 6px;
   color: var(--text-primary);
@@ -261,45 +313,45 @@ section:first-of-type { border-top: none; }
 .section-subtitle {
   margin: 0;
   color: var(--text-muted);
-  font-size: 14px;
-  max-width: 68ch;
+  font-size: 14.5px;
+  max-width: 72ch;
   line-height: 1.55;
+  font-weight: 500;
 }
 
 /* Hero Header */
 .hero {
-  padding: 56px 0 36px;
+  padding: 48px 0 32px;
 }
 .hero-title {
-  font-size: clamp(30px, 3.8vw, 46px);
+  font-size: clamp(32px, 4vw, 48px);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.15;
   margin: 0 0 14px;
-  background: linear-gradient(135deg, var(--text-primary) 60%, var(--text-muted));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text-primary);
   max-width: 22ch;
 }
 .hero-desc {
-  font-size: 16px;
+  font-size: 16.5px;
   color: var(--text-secondary);
-  max-width: 64ch;
+  max-width: 68ch;
   margin: 0 0 28px;
   line-height: 1.6;
+  font-weight: 500;
 }
 
 /* Findings Cards */
 .findings-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  gap: 18px;
   margin-top: 24px;
 }
 .finding-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 22px;
   box-shadow: var(--shadow-sm);
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
@@ -314,8 +366,8 @@ section:first-of-type { border-top: none; }
 }
 .finding-stat {
   font-family: var(--font-mono);
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 34px;
+  font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--accent);
   line-height: 1;
@@ -323,9 +375,9 @@ section:first-of-type { border-top: none; }
 }
 .finding-label {
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   color: var(--text-muted);
   margin-bottom: 8px;
 }
@@ -334,52 +386,54 @@ section:first-of-type { border-top: none; }
   color: var(--text-secondary);
   line-height: 1.5;
   margin: 0;
+  font-weight: 500;
 }
-.finding-desc em { font-style: normal; color: var(--text-muted); }
 
 /* Matrix Heatmap */
 .legend-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 18px;
   margin-bottom: 24px;
-  padding: 12px 18px;
+  padding: 14px 20px;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  font-size: 13px;
-  color: var(--text-secondary);
+  border-radius: 12px;
+  font-size: 13.5px;
+  color: var(--text-primary);
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
 }
-.legend-item { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; }
+.legend-item { display: inline-flex; align-items: center; gap: 8px; }
 .swatch {
-  width: 12px;
-  height: 12px;
-  border-radius: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
   display: inline-block;
 }
 
 .matrix-container { display: grid; gap: 12px; }
 .matrix-row {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 230px 1fr;
   gap: 16px;
   align-items: center;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 12px 16px;
+  border-radius: 12px;
+  padding: 12px 18px;
   box-shadow: var(--shadow-sm);
 }
 .matrix-cat-title {
-  font-size: 13.5px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--text-primary);
   line-height: 1.3;
 }
 .matrix-cat-sub {
   display: block;
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 600;
   color: var(--text-muted);
   margin-top: 2px;
 }
@@ -391,17 +445,17 @@ section:first-of-type { border-top: none; }
 .cell-btn {
   position: relative;
   aspect-ratio: 1 / 1;
-  border-radius: 6px;
+  border-radius: 7px;
   border: 1px solid transparent;
   padding: 0;
   cursor: pointer;
   display: grid;
   place-items: center;
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 .cell-btn:hover {
-  transform: scale(1.15) translateY(-2px);
+  transform: scale(1.18) translateY(-2px);
   z-index: 10;
   box-shadow: var(--shadow-md);
 }
@@ -410,15 +464,15 @@ section:first-of-type { border-top: none; }
 .cell-btn[data-v="needs_outreach"] { background: var(--verdict-outreach-bg); color: var(--verdict-outreach); border-color: var(--verdict-outreach-border); }
 .cell-btn[data-v="not_buildable"] { background: var(--verdict-dead-bg); color: var(--verdict-dead); border-color: var(--verdict-dead-border); }
 .cell-btn[data-v="unknown"] { background: var(--verdict-unknown-bg); color: var(--verdict-unknown); border-color: var(--verdict-unknown-border); }
-.cell-btn i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.7; }
+.cell-btn i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.85; }
 .cell-btn.mcp::after {
   content: "";
   position: absolute;
   top: 3px; right: 3px;
-  width: 6px; height: 6px;
+  width: 7px; height: 7px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 4px var(--accent);
+  box-shadow: 0 0 6px var(--accent);
 }
 
 /* Analytics Charts */
@@ -430,17 +484,17 @@ section:first-of-type { border-top: none; }
 .chart-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 24px;
   box-shadow: var(--shadow-sm);
 }
 .chart-card-title {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text-primary);
   margin: 0 0 16px;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 .bars-list { display: grid; gap: 10px; }
 .bar-row {
@@ -448,22 +502,22 @@ section:first-of-type { border-top: none; }
   grid-template-columns: 160px 1fr 44px;
   gap: 12px;
   align-items: center;
-  font-size: 13px;
+  font-size: 13.5px;
 }
-.bar-label { color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 500; }
-.bar-track { background: var(--bg-panel); border-radius: 4px; height: 18px; overflow: hidden; }
-.bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #818cf8); border-radius: 4px; transition: width 0.4s ease; }
-.bar-val { font-family: var(--font-mono); font-size: 12.5px; color: var(--text-muted); text-align: right; font-weight: 600; }
+.bar-label { color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 600; }
+.bar-track { background: var(--bg-panel); border-radius: 5px; height: 20px; overflow: hidden; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #818cf8); border-radius: 5px; transition: width 0.4s ease; }
+.bar-val { font-family: var(--font-mono); font-size: 13px; color: var(--text-primary); text-align: right; font-weight: 700; }
 
 .split-row {
   display: grid;
-  grid-template-columns: 200px 1fr 60px;
+  grid-template-columns: 210px 1fr 60px;
   gap: 12px;
   align-items: center;
-  font-size: 13px;
-  margin-bottom: 10px;
+  font-size: 13.5px;
+  margin-bottom: 12px;
 }
-.split-track { display: flex; height: 20px; border-radius: 4px; overflow: hidden; background: var(--bg-panel); }
+.split-track { display: flex; height: 22px; border-radius: 5px; overflow: hidden; background: var(--bg-panel); }
 .split-track .a { background: var(--verdict-open); }
 .split-track .b { background: var(--verdict-care); }
 .split-track .c { background: var(--verdict-outreach); }
@@ -477,8 +531,8 @@ section:first-of-type { border-top: none; }
 .step-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 14px;
+  padding: 22px;
   box-shadow: var(--shadow-sm);
   position: relative;
   transition: border-color 0.15s ease;
@@ -490,10 +544,10 @@ section:first-of-type { border-top: none; }
   justify-content: center;
   font-family: var(--font-mono);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--accent);
   background: var(--accent-light);
-  padding: 3px 8px;
+  padding: 4px 9px;
   border-radius: 6px;
   margin-bottom: 12px;
 }
@@ -505,8 +559,8 @@ section:first-of-type { border-top: none; }
   color: var(--verdict-care);
   background: var(--verdict-care-bg);
 }
-.step-card h3 { margin: 0 0 6px; font-size: 15px; font-weight: 700; color: var(--text-primary); }
-.step-card p { margin: 0; font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+.step-card h3 { margin: 0 0 6px; font-size: 15.5px; font-weight: 800; color: var(--text-primary); }
+.step-card p { margin: 0; font-size: 13.5px; color: var(--text-muted); line-height: 1.5; font-weight: 500; }
 
 /* Accuracy Section */
 .accuracy-grid {
@@ -526,14 +580,14 @@ section:first-of-type { border-top: none; }
 .accuracy-num {
   font-family: var(--font-mono);
   font-weight: 800;
-  font-size: 46px;
+  font-size: 48px;
   letter-spacing: -0.04em;
   line-height: 1;
 }
 .accuracy-num.before { color: var(--text-subtle); }
 .accuracy-num.after { color: var(--verdict-open); }
-.accuracy-arrow { color: var(--text-muted); font-size: 22px; font-weight: 600; }
-.accuracy-cap { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+.accuracy-arrow { color: var(--text-muted); font-size: 24px; font-weight: 700; }
+.accuracy-cap { font-size: 13.5px; color: var(--text-muted); line-height: 1.55; font-weight: 500; }
 
 /* Data Table & Controls */
 .table-card {
@@ -547,15 +601,16 @@ section:first-of-type { border-top: none; }
 .controls-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 20px;
 }
 .controls-bar input, .controls-bar select {
   font-family: var(--font-sans);
-  font-size: 13.5px;
-  padding: 9px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 14px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 9px;
   background: var(--bg-page);
   color: var(--text-primary);
   outline: none;
@@ -565,38 +620,39 @@ section:first-of-type { border-top: none; }
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-glow);
 }
-.controls-bar input { min-width: 220px; flex: 1; }
+.controls-bar input { min-width: 240px; flex: 1; }
 
 table.data-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13.5px;
+  font-size: 14px;
   text-align: left;
 }
 table.data-table th {
-  font-weight: 600;
+  font-weight: 800;
   font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--text-muted);
   padding: 12px 14px;
   border-bottom: 2px solid var(--border);
-  background: var(--bg-page);
+  background: var(--bg-panel);
 }
 table.data-table td {
-  padding: 12px 14px;
+  padding: 13px 14px;
   border-bottom: 1px solid var(--border-subtle);
   vertical-align: middle;
+  color: var(--text-primary);
 }
 table.data-table tr:hover td { background: var(--bg-panel); }
 
 .pill {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  font-size: 11.5px;
-  font-weight: 600;
-  padding: 3px 9px;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
   border-radius: 6px;
   white-space: nowrap;
 }
@@ -611,8 +667,8 @@ table.data-table tr:hover td { background: var(--bg-panel); }
   border: none;
   padding: 0;
   font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 14.5px;
+  font-weight: 700;
   color: var(--text-primary);
   cursor: pointer;
   text-decoration: underline;
@@ -626,15 +682,15 @@ dialog#dlg {
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 0;
-  max-width: 620px;
+  max-width: 640px;
   width: calc(100% - 32px);
   background: var(--bg-card);
   color: var(--text-primary);
   box-shadow: var(--shadow-lg);
 }
 dialog::backdrop {
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(6px);
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
 }
 .dlg-h {
   padding: 20px 24px;
@@ -643,28 +699,28 @@ dialog::backdrop {
   justify-content: space-between;
   align-items: start;
 }
-.dlg-h h3 { margin: 0; font-size: 18px; font-weight: 700; }
-.dlg-h .c { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+.dlg-h h3 { margin: 0; font-size: 19px; font-weight: 800; color: var(--text-primary); }
+.dlg-h .c { font-size: 13.5px; color: var(--text-muted); margin-top: 2px; font-weight: 500; }
 .dlg-b { padding: 24px; }
 .dlg-b dl {
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 130px 1fr;
   gap: 10px 16px;
   margin: 0 0 20px;
-  font-size: 13.5px;
+  font-size: 14px;
 }
-.dlg-b dt { color: var(--text-muted); font-weight: 500; }
-.dlg-b dd { margin: 0; color: var(--text-primary); }
+.dlg-b dt { color: var(--text-muted); font-weight: 600; }
+.dlg-b dd { margin: 0; color: var(--text-primary); font-weight: 500; }
 .dlg-b .quote {
   border-left: 3px solid var(--accent);
   padding: 8px 0 8px 14px;
   margin: 0 0 12px;
-  font-size: 13px;
+  font-size: 13.5px;
   color: var(--text-secondary);
   background: var(--bg-panel);
   border-radius: 0 8px 8px 0;
 }
-.dlg-b .quote a { display: block; font-size: 11.5px; margin-top: 6px; word-break: break-all; color: var(--accent); }
+.dlg-b .quote a { display: block; font-size: 12px; margin-top: 6px; word-break: break-all; color: var(--accent); font-weight: 600; }
 .x {
   background: var(--bg-panel);
   border: 1px solid var(--border);
@@ -681,7 +737,7 @@ dialog::backdrop {
 footer {
   padding: 40px 0 60px;
   border-top: 1px solid var(--border);
-  font-size: 13px;
+  font-size: 13.5px;
   color: var(--text-muted);
 }
 .empty {
@@ -714,6 +770,7 @@ footer {
       <span class="status-pill"><span class="status-dot"></span> 100 Apps Analyzed</span>
       <a id="repo-link" href="#" target="_blank" rel="noopener">GitHub Repo</a>
       <a id="run-link" href="#">Pipeline Docs</a>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">🌙 Dark</button>
     </div>
   </div>
 </header>
@@ -883,6 +940,22 @@ footer {
 <script>
 const DATA = {"sample":true,"patterns":{"n":100,"auth":[["api_key",33],["oauth2",29],["bearer_token",22],["hmac_signed",16]],"access_tier":[["self_serve_free",36],["self_serve_paid",25],["partner_gated",20],["admin_approval",8],["app_review",7],["no_public_api",4]],"verdict":[["build_with_care",40],["build_now",36],["needs_outreach",20],["not_buildable",4]],"blocker":[["none",36],["paid_plan_required",25],["partnership_required",20],["admin_approval_required",8],["app_review_required",7],["no_public_api",4]],"mcp":[["none",49],["community",32],["official",19]],"api_types":[["rest",80],["graphql",20]],"api_breadth":[["moderate",35],["broad",24],["very_broad",23],["narrow",18]],"categories":[{"category":"CRM and Sales","n":10,"self_serve":7,"gated":3,"build_now":3,"needs_outreach":3,"mcp":6,"self_serve_pct":70,"dominant_auth":"api_key"},{"category":"Support and Helpdesk","n":10,"self_serve":9,"gated":1,"build_now":6,"needs_outreach":0,"mcp":4,"self_serve_pct":90,"dominant_auth":"oauth2"},{"category":"Communications and Messaging","n":10,"self_serve":9,"gated":1,"build_now":7,"needs_outreach":0,"mcp":4,"self_serve_pct":90,"dominant_auth":"api_key"},{"category":"Marketing, Ads, Email and Social","n":10,"self_serve":5,"gated":5,"build_now":5,"needs_outreach":4,"mcp":5,"self_serve_pct":50,"dominant_auth":"oauth2"},{"category":"Ecommerce","n":10,"self_serve":1,"gated":9,"build_now":1,"needs_outreach":5,"mcp":4,"self_serve_pct":10,"dominant_auth":"oauth2"},{"category":"Data, SEO and Scraping","n":10,"self_serve":10,"gated":0,"build_now":3,"needs_outreach":0,"mcp":8,"self_serve_pct":100,"dominant_auth":"bearer_token"},{"category":"Developer, Infra and Data platforms","n":10,"self_serve":10,"gated":0,"build_now":4,"needs_outreach":0,"mcp":5,"self_serve_pct":100,"dominant_auth":"bearer_token"},{"category":"Productivity and Project Management","n":10,"self_serve":3,"gated":7,"build_now":3,"needs_outreach":0,"mcp":5,"self_serve_pct":30,"dominant_auth":"oauth2"},{"category":"Finance and Fintech","n":10,"self_serve":4,"gated":6,"build_now":4,"needs_outreach":5,"mcp":5,"self_serve_pct":40,"dominant_auth":"hmac_signed"},{"category":"AI, Research and Media-native","n":10,"self_serve":3,"gated":7,"build_now":0,"needs_outreach":3,"mcp":5,"self_serve_pct":30,"dominant_auth":"api_key"}],"auth_vs_gate":{"bearer_token":{"self_serve":16,"gated":6},"api_key":{"self_serve":20,"gated":13},"hmac_signed":{"self_serve":9,"gated":7},"oauth2":{"self_serve":16,"gated":13}},"pct":{"self_serve":61,"build_now":36,"needs_outreach":20,"any_mcp":51,"official_mcp":19}},"accuracy":{"available":true,"n_sampled":20,"fields":{"auth_methods":{"n":20,"v1_pct":70,"v2_pct":90},"access_tier":{"n":20,"v1_pct":55,"v2_pct":80},"api_types":{"n":20,"v1_pct":85,"v2_pct":95},"mcp_status":{"n":20,"v1_pct":45,"v2_pct":85},"verdict":{"n":20,"v1_pct":60,"v2_pct":85}},"overall":{"n":100,"v1_pct":63,"v2_pct":87,"delta":24},"rows":[],"regressions":[]},"validation":{"v1_clean_pct":58,"v2_clean_pct":91,"repairs_run":61,"top_v1_errors":[["excerpt not found in the page",34],["access_tier asserted with no grounded evidence",19]],"still_failing":["fanbasis","iPayX"]},"apps":[{"app":"Consensus","slug":"consensus","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Devin","slug":"devin","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"no_public_api","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"not_buildable","blocker":"no_public_api","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Fathom","slug":"fathom","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Grain","slug":"grain","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_paid","api_types":["graphql"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Mermaid CLI","slug":"mermaid-cli","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"no_public_api","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"not_buildable","blocker":"no_public_api","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"NotebookLM","slug":"notebooklm","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"no_public_api","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"not_buildable","blocker":"no_public_api","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Otter AI","slug":"otter-ai","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Reducto","slug":"reducto","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"no_public_api","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"not_buildable","blocker":"no_public_api","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"YouTube Transcript","slug":"youtube-transcript","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"higgsfield","slug":"higgsfield","category":"AI, Research and Media-native","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_paid","api_types":["graphql"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Attio","slug":"attio","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Close","slug":"close","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Copper","slug":"copper","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"DealCloud","slug":"dealcloud","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["graphql"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"HubSpot","slug":"hubspot","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Pipedrive","slug":"pipedrive","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Podio","slug":"podio","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Salesforce","slug":"salesforce","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_paid","api_types":["graphql"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Twenty","slug":"twenty","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Zoho CRM","slug":"zoho-crm","category":"CRM and Sales","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Aircall","slug":"aircall","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Discord","slug":"discord","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Lark (Larksuite)","slug":"lark-larksuite","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Pumble","slug":"pumble","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Slack","slug":"slack","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Telegram","slug":"telegram","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Twilio","slug":"twilio","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Vonage","slug":"vonage","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"WhatsApp Business","slug":"whatsapp-business","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Zoho Cliq","slug":"zoho-cliq","category":"Communications and Messaging","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"app_review","api_types":["graphql"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"app_review_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Ahrefs","slug":"ahrefs","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Apify","slug":"apify","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Bright Data","slug":"bright-data","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Clay","slug":"clay","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"DataForSEO","slug":"dataforseo","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Firecrawl","slug":"firecrawl","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"MrScraper","slug":"mrscraper","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_free","api_types":["graphql"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"SE Ranking","slug":"se-ranking","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Sherlock","slug":"sherlock","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Waterfall.io","slug":"waterfall-io","category":"Data, SEO and Scraping","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Cloudflare","slug":"cloudflare","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Datadog","slug":"datadog","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"GitHub","slug":"github","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_free","api_types":["graphql"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"MongoDB Atlas","slug":"mongodb-atlas","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_paid","api_types":["graphql"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Neo4j","slug":"neo4j","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Netlify","slug":"netlify","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Sentry","slug":"sentry","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Snowflake","slug":"snowflake","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Supabase","slug":"supabase","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Vercel","slug":"vercel","category":"Developer, Infra and Data platforms","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Amazon Selling Partner","slug":"amazon-selling-partner","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"app_review","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"app_review_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"BigCommerce","slug":"bigcommerce","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"partner_gated","api_types":["graphql"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Ecwid","slug":"ecwid","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Gumroad","slug":"gumroad","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"app_review","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"app_review_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Magento (Adobe Commerce)","slug":"magento-adobe-commerce","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Salesforce Commerce Cloud","slug":"salesforce-commerce-cloud","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Shopify","slug":"shopify","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Squarespace","slug":"squarespace","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"app_review","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"app_review_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"WooCommerce","slug":"woocommerce","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"app_review","api_types":["graphql"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"app_review_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"fanbasis","slug":"fanbasis","category":"Ecommerce","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Binance","slug":"binance","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Brex","slug":"brex","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Paygent Connect","slug":"paygent-connect","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"PitchBook","slug":"pitchbook","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"partner_gated","api_types":["graphql"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Plaid","slug":"plaid","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"QuickBooks","slug":"quickbooks","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"app_review","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"app_review_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Ramp","slug":"ramp","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_free","api_types":["graphql"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Stripe","slug":"stripe","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Xero","slug":"xero","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"iPayX","slug":"ipayx","category":"Finance and Fintech","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"GoHighLevel","slug":"gohighlevel","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_free","api_types":["graphql"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Google Ads","slug":"google-ads","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Klaviyo","slug":"klaviyo","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_free","api_types":["graphql"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"LinkedIn Ads","slug":"linkedin-ads","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"app_review","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"app_review_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Mailchimp","slug":"mailchimp","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Meta Ads","slug":"meta-ads","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_free","api_types":["graphql"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Pinterest","slug":"pinterest","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"partner_gated","api_types":["graphql"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"SendGrid","slug":"sendgrid","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Threads (Meta)","slug":"threads-meta","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"partner_gated","api_types":["graphql"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"systeme.io","slug":"systeme-io","category":"Marketing, Ads, Email and Social","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"partner_gated","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"needs_outreach","blocker":"partnership_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Airtable","slug":"airtable","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Asana","slug":"asana","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"admin_approval","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"admin_approval_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"ClickUp","slug":"clickup","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Coda","slug":"coda","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"admin_approval","api_types":["graphql"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"admin_approval_required","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Harvest","slug":"harvest","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"admin_approval","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"admin_approval_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Jira","slug":"jira","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"admin_approval","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"admin_approval_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Linear","slug":"linear","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"admin_approval","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_with_care","blocker":"admin_approval_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Monday.com","slug":"monday-com","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Notion","slug":"notion","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"admin_approval","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"admin_approval_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Smartsheet","slug":"smartsheet","category":"Productivity and Project Management","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"admin_approval","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"admin_approval_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Freshdesk","slug":"freshdesk","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"broad","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Front","slug":"front","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["graphql"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Gladly","slug":"gladly","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Gorgias","slug":"gorgias","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_paid","api_types":["graphql"],"api_breadth":"very_broad","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"low","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Help Scout","slug":"help-scout","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"official","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Intercom","slug":"intercom","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["oauth2"],"access_tier":"self_serve_paid","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"paid_plan_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"LiveAgent","slug":"liveagent","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"admin_approval","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_with_care","blocker":"admin_approval_required","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Plain","slug":"plain","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["bearer_token"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"community","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":false,"errors":[]},"notes":""},{"app":"Pylon","slug":"pylon","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["api_key"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"narrow","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"high","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""},{"app":"Zendesk","slug":"zendesk","category":"Support and Helpdesk","one_liner":"Sample record \u2014 not real research.","auth_methods":["hmac_signed"],"access_tier":"self_serve_free","api_types":["rest"],"api_breadth":"moderate","api_breadth_note":"","mcp_status":"none","mcp_url":null,"verdict":"build_now","blocker":"none","blocker_note":"","confidence":"medium","evidence":[{"url":"https://example.invalid/docs","excerpt":"Synthetic placeholder text.","supports":["auth_methods"]}],"validation":{"ok":true,"errors":[]},"notes":""}]};
 const META = {"repo":"#","author":"","built":"2026-09-16","sample":true};
+
+/* Theme switcher */
+const toggleBtn = document.getElementById("theme-toggle");
+function setTheme(t) {
+  document.documentElement.setAttribute("data-theme", t);
+  localStorage.setItem("theme", t);
+  if(toggleBtn) toggleBtn.textContent = t === "dark" ? "☀️ Light" : "🌙 Dark";
+}
+const initTheme = localStorage.getItem("theme") || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+setTheme(initTheme);
+if(toggleBtn) {
+  toggleBtn.onclick = () => {
+    const cur = document.documentElement.getAttribute("data-theme") || initTheme;
+    setTheme(cur === "dark" ? "light" : "dark");
+  };
+}
 
 const VERDICT_LABEL = {
   build_now: "Direct API Access",
